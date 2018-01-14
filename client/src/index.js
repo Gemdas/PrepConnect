@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import CreateAccount from './createAccount';
+import Dashboard from './dashboard';
 
 
-ReactDOM.render(<CreateAccount />, document.getElementById('root'));
+ReactDOM.render(<Dashboard />, document.getElementById('root'));
 
