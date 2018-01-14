@@ -82,7 +82,7 @@ class Dashboard extends Component {
 				            </div>
 				        </nav>
 
-				        <div className="content">
+				        <div className="content content-wrapper">
 				            <div className="container-fluid">
 				                <div className="row">
 
