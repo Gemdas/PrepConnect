@@ -1,0 +1,20 @@
+.wrapper {
+  background-color: #2172c5;
+  height: 1000px;
+}
+
+.content-wrapper {
+	background-color: #FCFCFC;
+}
+
+
+.loginForm {
+  background-color: #FAFAFA;
+  padding: 10px;
+  text-align: left;
+}
+
+.btn {
+  color: #FF7E67;
+  border-color: #FF7E67;
+}

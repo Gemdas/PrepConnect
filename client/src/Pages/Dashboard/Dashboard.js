@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './dashboard.css';
 
 // This page holds the Dashboard Shell Component
 
@@ -85,7 +85,7 @@ class Dashboard extends Component {
 				        <div className="content content-wrapper">
 				            <div className="container-fluid">
 				                <div className="row">
-
+				                	
 				                </div>
 				            </div>
 				        </div>
