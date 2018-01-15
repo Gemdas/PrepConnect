@@ -3,8 +3,12 @@
 }
 
 .wrapper {
-  background-color: #07689F;
+  background-color: #2172c5;
   height: 1000px;
+}
+
+.content-wrapper {
+	background-color: #FCFCFC;
 }
 
 .loginForm {
