@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import CreateAccount from './createAccount';
-import Dashboard from './dashboard';
+
+import JavascriptEditor from './jsEditor';
+import CssEditor from './cssEditor';
+import HtmlEditor from "./htmlEditor";
 
 
-ReactDOM.render(<Dashboard />, document.getElementById('root'));
+ReactDOM.render(<HtmlEditor />, document.getElementById('root'));
 

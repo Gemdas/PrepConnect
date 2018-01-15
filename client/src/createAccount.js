@@ -11,9 +11,7 @@ class CreateAccount extends Component {
 	            <div className="card-body row justify-content-center">
 	              <div className="col-sm-6 loginForm">
 	              <div className="card-header">
-	                <h1 className="card-title">Welcome to PrepConnect</h1>
-	                <h3 className="card-subtitle mb-2 text-muted">Nail the Interview!</h3>
-	                <h4 className="card-text">Interviewing made easy. Create an account or log in to review actual interview questions, or initiate an interview for a job matching your skill!</h4>              
+	                <h1 className="card-title">Create an Account</h1>             
 	              </div>
 	             <br />
 	              <form>
