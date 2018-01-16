@@ -4,6 +4,7 @@ import './dashboard.css';
 import WelcomeScreen from "../../Components/WelcomeScreen";
 import UpdateAccount from "../UpdateAccount";
 import ConnectionsJobSeeker from "../ConnectionsJobSeeker";
+// import VotingBtn from "../../Components/VotingBtn";
 
 // This page holds the Dashboard Shell Component
 
@@ -88,9 +89,9 @@ class Dashboard extends Component {
 				            <HashRouter>
 				                <div className="row">
 					                <Switch>
-					                	<Route path="/" component={WelcomeScreen} />
-					                	<Route path="/update" component={UpdateAccount} />
-					                	<Route path="/js_connections" component={ConnectionsJobSeeker} />
+					                	<Route exact path="/" component={WelcomeScreen} />
+					                	<Route exact path="/update" component={UpdateAccount} />
+					                	<Route exact path="/js_connections" component={ConnectionsJobSeeker} />
 					                </Switch>
 				                </div>
 				            </HashRouter>
