@@ -4,7 +4,9 @@ import './dashboard.css';
 import WelcomeScreen from "../../Components/WelcomeScreen";
 import UpdateAccount from "../UpdateAccount";
 import ConnectionsJobSeeker from "../ConnectionsJobSeeker";
-// import VotingBtn from "../../Components/VotingBtn";
+import PostJob from "../PostJob";
+import Autosuggest from "../../Components/Autosuggest";
+
 
 // This page holds the Dashboard Shell Component
 
@@ -28,7 +30,7 @@ class Dashboard extends Component {
 					                    </Link>
 					                </li>
 					                <li>
-					                    <Link to="#">
+					                    <Link to="/post">
 					                        <i className="pe-7s-plus"></i>
 					                        <p>Post a Job</p>
 					                    </Link>
@@ -40,7 +42,7 @@ class Dashboard extends Component {
 					                    </Link>
 					                </li>
 					                <li>
-					                    <Link to="#">
+					                    <Link to="/prep">
 					                        <i className="pe-7s-display2"></i>
 					                        <p>Prep</p>
 					                    </Link>
@@ -90,8 +92,10 @@ class Dashboard extends Component {
 				                <div className="row">
 					                <Switch>
 					                	<Route exact path="/" component={WelcomeScreen} />
-					                	<Route exact path="/update" component={UpdateAccount} />
-					                	<Route exact path="/js_connections" component={ConnectionsJobSeeker} />
+					                	<Route path="/update" component={UpdateAccount} />
+					                	<Route path="/js_connections" component={ConnectionsJobSeeker} />
+					                	<Route path="/post" component={PostJob} />
+					                	<Route path="/prep" component={Autosuggest} />
 					                </Switch>
 				                </div>
 				            </HashRouter>
