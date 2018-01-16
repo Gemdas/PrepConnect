@@ -7,6 +7,7 @@ import ConnectionsJobSeeker from "../ConnectionsJobSeeker";
 // This page holds the Dashboard Shell Component
 
 class Dashboard extends Component {
+
 	render () {
 		return (
 			<div className="Dashboard">
@@ -21,7 +22,7 @@ class Dashboard extends Component {
 
 				            <HashRouter>
 					            <ul className="nav">
-					                <li className="active">
+					                <li>
 					                    <Link to="/update">
 					                        <i className="pe-7s-user"></i>
 					                        <p>Profile</p>
@@ -53,7 +54,6 @@ class Dashboard extends Component {
 					                </li>
 					            </ul>
 				            </HashRouter>
->>>>>>> master
 				    	</div>
     				</div>
 
