@@ -1,5 +1,6 @@
  import React, { Component } from 'react';
  import "./Prep.css";
+ import VotingBtn from "../../Components/VotingBtn";
 
  // This page holds the table that shows each job seeker/recruiter their "matches" based on survey score
  // Props needed: Table Headers for Recruiters and Job Seekers
