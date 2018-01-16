@@ -8,6 +8,11 @@ h2 {
   margin: 0;
 }
 
+.skill-q {
+  display: block;
+  margin: 0;
+}
+
 label {
   margin-right: 15px;
   margin-left: 5px;

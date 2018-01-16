@@ -4,7 +4,7 @@ import "./RadioSkill.css"
 const RadioSkill = props => (
 
 	<form className="skill">
-		<div className="input-group">
+		<div className="input-group skill-q">
 			<h2>{props.skill}</h2>
 			<label className="radio-inline"><input type="radio" name="skill-" value={0} checked />N/A</label>
 			<label className="radio-inline"><input type="radio" name="skill-" value={1}/>Beginner</label>
