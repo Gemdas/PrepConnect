@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import './login.css';
 
 // This file holds the landing/login componenent
@@ -26,7 +27,9 @@ class Login extends Component {
               </div>
                 <div className="row">
                     <div className="col-sm-6">
+                    <Link to="/dashboard">
                       <button type="submit" className="btn btn-outline">Submit</button>
+                    </Link>
                     </div>
                     <div className="col-sm-6">
                       <button type="submit" className="btn btn-outline">Create an account</button>

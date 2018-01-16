@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, HashRouter, Switch, Link } from "react-router-dom";
 import './dashboard.css';
+import UpdateAccount from "../UpdateAccount";
+import ConnectionsJobSeeker from "../ConnectionsJobSeeker";
 
 // This page holds the Dashboard Shell Component
 
@@ -15,38 +18,40 @@ class Dashboard extends Component {
 				                    PrepConnect
 				                </a>
 				            </div>
-				            <ul className="nav">
-				                <li className="active">
-				                    <a href="#">
-				                        <i className="pe-7s-user"></i>
-				                        <p>Profile</p>
-				                    </a>
-				                </li>
-				                <li>
-				                    <a href="#">
-				                        <i className="pe-7s-plus"></i>
-				                        <p>Post a Job</p>
-				                    </a>
-				                </li>
-				                <li>
-				                    <a href="#">
-				                        <i className="pe-7s-share"></i>
-				                        <p>Connections</p>
-				                    </a>
-				                </li>
-				                <li>
-				                    <a href="#">
-				                        <i className="pe-7s-display2"></i>
-				                        <p>Prep</p>
-				                    </a>
-				                </li>
-				                <li>
-				                    <a href="#">
-				                        <i className="pe-7s-copy-file"></i>
-				                        <p>Current Postings</p>
-				                    </a>
-				                </li>
-				            </ul>
+				            <HashRouter>
+					            <ul className="nav">
+					                <li className="active">
+					                    <Link to="/update">
+					                        <i className="pe-7s-user"></i>
+					                        <p>Profile</p>
+					                    </Link>
+					                </li>
+					                <li>
+					                    <Link to="#">
+					                        <i className="pe-7s-plus"></i>
+					                        <p>Post a Job</p>
+					                    </Link>
+					                </li>
+					                <li>
+					                    <Link to="/js_connections">
+					                        <i className="pe-7s-share"></i>
+					                        <p>Connections</p>
+					                    </Link>
+					                </li>
+					                <li>
+					                    <Link to="#">
+					                        <i className="pe-7s-display2"></i>
+					                        <p>Prep</p>
+					                    </Link>
+					                </li>
+					                <li>
+					                    <Link to="#">
+					                        <i className="pe-7s-copy-file"></i>
+					                        <p>Current Postings</p>
+					                    </Link>
+					                </li>
+					            </ul>
+				            </HashRouter>
 				    	</div>
     				</div>
 
@@ -84,9 +89,14 @@ class Dashboard extends Component {
 
 				        <div className="content content-wrapper">
 				            <div className="container-fluid">
+				            <HashRouter>
 				                <div className="row">
-				                	
+					                <Switch>
+					                	<Route path="/update" component={UpdateAccount} />
+					                	<Route path="/js_connections" component={ConnectionsJobSeeker} />
+					                </Switch>
 				                </div>
+				            </HashRouter>
 				            </div>
 				        </div>
 				    </div>
