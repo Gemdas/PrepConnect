@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './dashboard.css';
+import RadioSkill from "../../Components/Slider";
 
 // This page holds the Dashboard Shell Component
 
@@ -16,7 +17,7 @@ class Dashboard extends Component {
 				                </a>
 				            </div>
 				            <ul className="nav">
-				                <li className="active">
+				                <li>
 				                    <a href="#">
 				                        <i className="pe-7s-user"></i>
 				                        <p>Profile</p>
@@ -84,9 +85,7 @@ class Dashboard extends Component {
 
 				        <div className="content content-wrapper">
 				            <div className="container-fluid">
-				                <div className="row">
-				                	
-				                </div>
+				                <RadioSkill skill="HTML"/>
 				            </div>
 				        </div>
 				    </div>
