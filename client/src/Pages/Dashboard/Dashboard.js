@@ -18,9 +18,7 @@ class Dashboard extends Component {
 				            <HashRouter>
 					            <ul className="nav">
 					                <li>
-					                    <Link to="/">
-					                        <p className="welcome">Welcome, User</p>
-					                    </Link>
+					                	<p className="welcome">Welcome, User</p>
 					                </li>
 					                <li>
 					                    <Link to="/update">
@@ -90,7 +88,7 @@ class Dashboard extends Component {
 				            <HashRouter>
 				                <div className="row">
 					                <Switch>
-					                	<Route path="/dashboard" component={WelcomeScreen} />
+					                	<Route path="/" component={WelcomeScreen} />
 					                	<Route path="/update" component={UpdateAccount} />
 					                	<Route path="/js_connections" component={ConnectionsJobSeeker} />
 					                </Switch>
