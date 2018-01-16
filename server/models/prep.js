@@ -9,7 +9,7 @@ const AnswerSchema = new Schema({
 const PrepSchema = new Schema({
 	question: {type: String, required: true},
 	type: {type: String, required: true},
-	cometency: {type: Number, required: true},,
+	competency: {type: Number, required: true},
 	answers: [AnswerSchema]
 })
 
