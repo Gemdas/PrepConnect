@@ -7,7 +7,7 @@
  class ConnectionsJobSeeker extends Component {
  	render () {
  		return (
- 			<div className="ConnectionsJobSeeker wrapper">
+ 			<div className="ConnectionsJobSeeker content-wrapper">
 	 			<table className="table">
 				  <thead>
 				    <tr>
