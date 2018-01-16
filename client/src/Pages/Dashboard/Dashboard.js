@@ -15,7 +15,7 @@ class Dashboard extends Component {
 		return (
 			<div className="Dashboard">
 	        	<div className="wrapper">
-        			<div className="sidebar" data-color="blue" data-image="assets/images/network.png">
+        			<div className="sidebar" data-color="blue" data-image="http://images.all-free-download.com/images/graphiclarge/seamless_network_background_312309.jpg">
 				    	<div className="sidebar-wrapper">
 				            <HashRouter>
 					            <ul className="nav">
