@@ -1,6 +1,6 @@
 module.exports = {
-  User: require("./user"),
-  Posting: require("./posting"),
-  Prep: require("./prep"),
-  Submission: require("./submission")
+  user: require("./user"),
+  posting: require("./posting"),
+  prep: require("./prep"),
+  submission: require("./submission")
 };
