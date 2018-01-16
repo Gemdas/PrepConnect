@@ -1,53 +1,25 @@
-import 'rc-slider/assets/index.css';
+import React from 'react';
+import InputRange from 'react-input-range';
+import "react-input-range/lib/css/index.css";
+import "./Slider.css";
 
-import React, {Component} from 'react';
-import Slider from 'rc-slider';
-
-const style = { width: 400, margin: 50 };
-
-const marks = {
-  0: "N/A",
-  1: "Beginner",
-  2: "Intermediate",
-  3: "Advanced",
-};
-
-function log(value) {
-  console.log(value); //eslint-disable-line
-}
-
-class SliderInput extends Component {
-	constructor(props){
+class Slider extends React.Component {
+  constructor(props) {
     super(props);
 
-	this.state = {
-		value: 0, 
-	}
+    this.state = { value: 0 };
+  }
 
-	onSliderChange = (value) => {
-		log(value);
-		this.setState({
-			value, 
-		});
-	}
+  render() {
+    return (
+      <InputRange
+        maxValue={3}
+        minValue={0}
+        value={this.state.value}
+        step={1}
+        onChange={value => this.setState({ value })} />
+    );
+  }
+}
 
-	onAfterchange = (value) => {
-		console.log(value);
-	}
-
-	render() 
-		return (
-			<Slider dots
-			step={1}
-			value={this.state.value}
-			onChange={this.onSliderChange}
-			onAfterchange={this.onAfterchange}
-			/>
-		)
-	}
-
-} 
-
-export default SliderInput;
-
-
+export default Slider;

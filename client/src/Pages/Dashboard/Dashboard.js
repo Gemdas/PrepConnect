@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, HashRouter, Switch, Link } from "react-router-dom";
 import './dashboard.css';
+import WelcomeScreen from "../../Components/WelcomeScreen";
 import UpdateAccount from "../UpdateAccount";
 import ConnectionsJobSeeker from "../ConnectionsJobSeeker";
 
 // This page holds the Dashboard Shell Component
 
 class Dashboard extends Component {
+
 	render () {
 		return (
 			<div className="Dashboard">
 	        	<div className="wrapper">
         			<div className="sidebar" data-color="blue" data-image="assets/images/network.png">
 				    	<div className="sidebar-wrapper">
-				            <div className="logo">
-				                <a href="#" className="simple-text">
-				                    PrepConnect
-				                </a>
-				            </div>
 				            <HashRouter>
 					            <ul className="nav">
-					                <li className="active">
+					                <li>
+					                	<p className="welcome">Welcome, User</p>
+					                </li>
+					                <li>
 					                    <Link to="/update">
 					                        <i className="pe-7s-user"></i>
 					                        <p>Profile</p>
@@ -56,7 +56,7 @@ class Dashboard extends Component {
     				</div>
 
 				    <div className="main-panel">
-				        <nav className="navbar navbar-default navbar-fixed">
+				        <nav className="navbar navbar-default navbar-fixed navbar-fixed-top">
 				            <div className="container-fluid">
 				                <div className="navbar-header">
 				                    <button type="button" className="navbar-toggle" data-toggle="collapse">
@@ -65,21 +65,17 @@ class Dashboard extends Component {
 				                        <span className="icon-bar"></span>
 				                        <span className="icon-bar"></span>
 				                    </button>
-				                    <a className="navbar-brand" href="#">User Name</a>
+				                    <a className="navbar-brand nav-text logo" href="#">
+				                    	PrepConnect
+				                    	<i className="fa fa-check-square-o nav-text"></i>
+			                    	</a>
 				                </div>
 				                <div className="collapse navbar-collapse">
-				                    <ul className="nav navbar-nav navbar-left">
-				                        <li>
-				                            <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-				                                <i className="fa fa-dashboard"></i>
-				                            </a>
-				                        </li>
-				                    </ul>
-
 				                    <ul className="nav navbar-nav navbar-right">
 				                        <li>
-				                           <a href="#">
+				                           <a href="#" className="nav-text">
 				                               Logout
+				                               <i className="fa fa-sign-out nav-text"></i>
 				                            </a>
 				                        </li>
 				                    </ul>
@@ -87,11 +83,12 @@ class Dashboard extends Component {
 				            </div>
 				        </nav>
 
-				        <div className="content content-wrapper">
+				        <div className="content content-wrapper dashboard-wrapper">
 				            <div className="container-fluid">
 				            <HashRouter>
 				                <div className="row">
 					                <Switch>
+					                	<Route path="/" component={WelcomeScreen} />
 					                	<Route path="/update" component={UpdateAccount} />
 					                	<Route path="/js_connections" component={ConnectionsJobSeeker} />
 					                </Switch>

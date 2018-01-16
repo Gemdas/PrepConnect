@@ -9,8 +9,11 @@
     "react-ace": "^5.9.0",
     "react-ace-editor": "0.0.2",
     "react-dom": "^16.2.0",
+    "react-joyride": "^1.11.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-typing-animation": "^1.1.5",
+    "react-typist": "^2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
