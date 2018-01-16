@@ -1,0 +1,11 @@
+.welcome-wrapper {
+	background: url("./connections.jpg");
+	background-repeat: no-repeat;
+	display: block;
+	background-size: auto 200%;
+	background-size: cover;
+}
+
+.welcome-head {
+	
+}

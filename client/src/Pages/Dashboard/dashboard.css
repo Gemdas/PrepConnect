@@ -1,0 +1,28 @@
+.content-wrapper {
+	background-color: #FCFCFC;
+}
+
+.nav-text {
+	color: #ffffff !important;
+	margin: 5px;
+}
+
+.logo {
+	margin-right: 20px !important;
+	font-size: 25px !important;
+}
+
+.dashboard-wrapper {
+	margin-top: 65px;
+}
+
+.sidebar-wrapper {
+	top: 65px;
+}
+
+.welcome {
+	font-size: 16px !important;
+	margin: 0px !important;
+	text-align: center;
+	display: block;
+}

@@ -7,6 +7,7 @@
 	background-color: #FCFCFC;
 }
 
+
 .loginForm {
   background-color: #FAFAFA;
   padding: 10px;
@@ -16,14 +17,4 @@
 .btn {
   color: #FF7E67;
   border-color: #FF7E67;
-}
-
-#editor { 
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 400px;
-  width: 700px;
 }
