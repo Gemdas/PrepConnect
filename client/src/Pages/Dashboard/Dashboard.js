@@ -15,14 +15,13 @@ class Dashboard extends Component {
 	        	<div className="wrapper">
         			<div className="sidebar" data-color="blue" data-image="assets/images/network.png">
 				    	<div className="sidebar-wrapper">
-				            <div className="logo">
-				                <a href="#" className="simple-text">
-				                    PrepConnect
-				                </a>
-				            </div>
-
 				            <HashRouter>
 					            <ul className="nav">
+					                <li>
+					                    <Link to="/">
+					                        <p className="welcome">Welcome, User</p>
+					                    </Link>
+					                </li>
 					                <li>
 					                    <Link to="/update">
 					                        <i className="pe-7s-user"></i>
