@@ -8,7 +8,8 @@ class Login extends Component {
   render() {
     return (
       <div className="wrapper">
-          <div className="card-body row justify-content-center">
+          <div className="card-body row align-items-center">
+          
             <div className="col-sm-6 loginForm">
             <div className="card-header">
               <h1 className="card-title">Welcome to PrepConnect</h1>
@@ -37,6 +38,7 @@ class Login extends Component {
                 </div>
             </form>
             </div>
+
           </div>
       </div>
     );
