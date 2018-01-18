@@ -4,6 +4,7 @@
 
  // This page holds the table that shows each job seeker/recruiter their "matches" based on survey score
  // Props needed: Table Headers for Recruiters and Job Seekers
+ // ADD COMPETENCY LEVEL DROPDOWN 
 
  class Prep extends Component {
  	render () {
