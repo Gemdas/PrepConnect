@@ -22,7 +22,9 @@ class Dashboard extends Component {
 				            <HashRouter>
 					            <ul className="nav">
 					                <li>
-					                	<p className="welcome">Welcome, User</p>
+					                	<Link to="/">
+					                		<p className="welcome">Welcome User</p>
+				                		</Link>
 					                </li>
 					                <li>
 					                    <Link to="/update">
