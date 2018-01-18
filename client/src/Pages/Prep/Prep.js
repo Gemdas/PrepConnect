@@ -22,6 +22,14 @@
 			      <option id="reactPrep" value="react">React</option>
 			    </select>
 			 </div>
+			 <div className="form-group">
+			    <label for="studySkillLevel" className="studySkillLevel">Topic</label>
+			    <select className="form-control skillLevels" id="studySkillLevel">
+			      <option id="beginner" value="1">Beginner</option>
+			      <option id="intermediate" value="2">intermediate</option>
+			      <option id="advanced" value="3">Advanced</option>
+			    </select>
+			 </div>
 		 </div>
  		)
  	}
