@@ -1,29 +1,31 @@
-import React, { Component } from 'react';
 
-// This page holds the connections table for the recruiter
-// Will need an AJAX Call to the database to pull props to populate table.
+ import React, { Component } from 'react';
+ import "./connection.css";
+ import SubmitBtn from "../../Components/SubmitBtn";
 
-class ConnectionsRecruiter extends Component {
+ class ConnectionsRecruiter extends Component {
  	render () {
  		return (
- 			<div className="ConnectionsRecruiter wrapper">
+ 			<div className="ConnectionsRecruiter content-wrapper">
 	 			<table className="table">
 				  <thead>
 				    <tr>
 				      <th scope="col">Job Title</th>
-				      <th scope="col">Job Seeker</th>
+				      <th scope="col">Company</th>
 				      <th scope="col">Status</th>
 				      <th scope="col">Option</th>
+				      <th scope="col">Contact</th>
 				      <th scope="col">Decline</th>
 				    </tr>
 				  </thead>
 				  <tbody>
 				    <tr>
-				      <th scope="row">1</th>
+				      <th scope="row">props</th>
 				      <td>props</td>
 				      <td>props</td>
 				      <td>props</td>
-				      <td>props</td>
+				      <td><button className="btn btn-success tableBtn">Contact</button></td>
+				      <td><button className="btn btn-danger tableBtn">Decline</button></td>
 				    </tr>
 				  </tbody>
 				</table>

@@ -1,3 +1,5 @@
+// ADD QUESTION OPTION FOR RECRUITERS
+
 import React, { Component } from 'react';
 import Radio from "../../Components/Slider";
 import SubmitBtn from "../../Components/SubmitBtn";
@@ -35,13 +37,34 @@ class PostJob extends Component {
 				  			<p>Use the buttons below to list the skills and level required for your job posting.</p>
 				  			
 				  			{/*Component Section*/}
-							<Radio skill="HTML" />
-					  		<Radio skill="CSS" />
-					  		<Radio skill="JavaScript" />
-					  		<Radio skill="jQuery" />
-					  		<Radio skill="MySQL" />
-					  		<Radio skill="MongoDB" />
-					  		<Radio skill="React" />
+				  			<div>
+				  				<Radio skill="HTML" />
+				  				<SubmitBtn label="Validate" className="validateBtn" onClick={this.handleAddValidatation} id="validate-html"/>
+				  			</div>
+				  			<div>
+				  				<Radio skill="CSS" />
+				  				<SubmitBtn label="Validate" className="validateBtn" onClick={this.handleAddValidatation} id="validate-css"/>
+				  			</div>
+				  			<div>
+				  				<Radio skill="JavaScript" />
+				  				<SubmitBtn label="Validate" className="validateBtn" onClick={this.handleAddValidatation} id="validate-javascript"/>
+				  			</div>
+				  			<div>
+				  				<Radio skill="jQuery" />
+				  				<SubmitBtn label="Validate" className="validateBtn" onClick={this.handleAddValidatation} id="validate-jquery"/>
+				  			</div>
+				  			<div>
+				  				<Radio skill="MySQL" />
+				  				<SubmitBtn label="Validate" className="validateBtn" onClick={this.handleAddValidatation} id="validate-mysql"/>
+				  			</div>
+				  			<div>
+				  				<Radio skill="MongoDB" />
+				  				<SubmitBtn label="Validate" className="validateBtn" onClick={this.handleAddValidatation} id="validate-mongodb"/>
+				  			</div>
+				  			<div>
+				  				<Radio skill="React" />
+				  				<SubmitBtn label="Validate" className="validateBtn" onClick={this.handleAddValidatation} id="validate-react"/>
+				  			</div>
 					  		<SubmitBtn label="Submit" />`
 				  		</div>
 

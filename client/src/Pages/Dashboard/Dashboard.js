@@ -5,7 +5,8 @@ import WelcomeScreen from "../../Components/WelcomeScreen";
 import UpdateAccount from "../UpdateAccount";
 import ConnectionsJobSeeker from "../ConnectionsJobSeeker";
 import PostJob from "../PostJob";
-import Autosuggest from "../../Components/Autosuggest";
+import Prep from "../Prep";
+import ConnectionsRecruiter from "../ConnectionsRecruiter";
 
 
 // This page holds the Dashboard Shell Component
@@ -16,7 +17,7 @@ class Dashboard extends Component {
 		return (
 			<div className="Dashboard">
 	        	<div className="wrapper">
-        			<div className="sidebar" data-color="blue" data-image="assets/images/network.png">
+        			<div className="sidebar" data-color="blue" data-image="http://images.all-free-download.com/images/graphiclarge/seamless_network_background_312309.jpg">
 				    	<div className="sidebar-wrapper">
 				            <HashRouter>
 					            <ul className="nav">
@@ -38,7 +39,13 @@ class Dashboard extends Component {
 					                <li>
 					                    <Link to="/js_connections">
 					                        <i className="pe-7s-share"></i>
-					                        <p>Connections</p>
+					                        <p>Connections (JS)</p>
+					                    </Link>
+					                </li>
+					                <li>
+					                    <Link to="/rec_connections">
+					                        <i className="pe-7s-share"></i>
+					                        <p>Connections (Rec)</p>
 					                    </Link>
 					                </li>
 					                <li>
@@ -95,7 +102,8 @@ class Dashboard extends Component {
 					                	<Route path="/update" component={UpdateAccount} />
 					                	<Route path="/js_connections" component={ConnectionsJobSeeker} />
 					                	<Route path="/post" component={PostJob} />
-					                	<Route path="/prep" component={Autosuggest} />
+					                	<Route path="/prep" component={Prep} />
+					                	<Route path="/rec_connections" component={ConnectionsRecruiter} />
 					                </Switch>
 				                </div>
 				            </HashRouter>

@@ -1,0 +1,9 @@
+.tableBtn {
+	margin: 0px !important;
+	padding: 5px 10px;
+}
+
+.table {
+	width: 100%;
+	table-layout: auto;
+}
