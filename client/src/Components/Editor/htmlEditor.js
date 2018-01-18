@@ -16,7 +16,7 @@ class HtmlEditor extends Component {
   render() {
     return (
       <AceEditor
-        mode="css"
+        mode="html"
         theme="terminal"
         setReadOnly= 'false'
         onChange={this.onChange}
