@@ -10,6 +10,7 @@ import ConnectionsRecruiter from "../ConnectionsRecruiter";
 
 
 // This page holds the Dashboard Shell Component
+// remove blue from bottom
 
 class Dashboard extends Component {
 
@@ -98,7 +99,6 @@ class Dashboard extends Component {
 				        <div className="content content-wrapper dashboard-wrapper">
 				            <div className="container-fluid">
 				            <HashRouter>
-				                <div className="row">
 					                <Switch>
 					                	<Route exact path="/" component={WelcomeScreen} />
 					                	<Route path="/update" component={UpdateAccount} />
@@ -107,7 +107,6 @@ class Dashboard extends Component {
 					                	<Route path="/prep" component={Prep} />
 					                	<Route path="/rec_connections" component={ConnectionsRecruiter} />
 					                </Switch>
-				                </div>
 				            </HashRouter>
 				            </div>
 				        </div>
