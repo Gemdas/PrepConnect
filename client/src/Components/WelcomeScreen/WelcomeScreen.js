@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Typewriter from "../Typewriter";
 import "./WelcomeScreen.css";
 
+// update image color.. maybe.. lowest imporance
+
 class WelcomeScreen extends Component {
 	render () {
 		return (
