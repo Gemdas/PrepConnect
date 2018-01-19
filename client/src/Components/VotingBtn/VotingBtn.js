@@ -1,6 +1,7 @@
 import React from 'react';
 
 // This page holds the upvote and downvote component
+
 // Still needs work on: 
 // stopping increment/decrement after 1 click
 // change color of thumb from orange to blue on click to show clicked.

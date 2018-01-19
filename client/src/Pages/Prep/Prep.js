@@ -1,6 +1,7 @@
  import React, { Component } from 'react';
  import "./Prep.css";
  import PrepQuestion from "../../Components/PrepQuestion";
+ import Application from "../Application";
 
  // This page holds the table that shows each job seeker/recruiter their "matches" based on survey score
  // Props needed: Table Headers for Recruiters and Job Seekers
@@ -44,6 +45,7 @@
 				<div className="col-sm-12">
 					<PrepQuestion question="example question" topAnswer="top answer example.." questionId="1"/>
 				</div>
+				<Application />
 			</div>
 		</div>
  		)

@@ -7,7 +7,10 @@ import Autosuggest from "../../Components/Autosuggest";
 import "./PostJob.css";
 
 // This page holds the Update Account Page
-// Components needed: Slider and Submit Button
+
+// validate buttons open text box for recruiter to submit question
+// submit button to post the job to match with job seekers 
+// recruiter defines their minimum compatibility 
 
 class PostJob extends Component {
 	render () {

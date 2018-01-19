@@ -1,7 +1,8 @@
-
  import React, { Component } from 'react';
  import "./connection.css";
  import SubmitBtn from "../../Components/SubmitBtn";
+
+ // ajax call to grab matched applications
 
  class ConnectionsRecruiter extends Component {
  	render () {

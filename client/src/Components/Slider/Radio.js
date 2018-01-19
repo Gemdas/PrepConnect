@@ -1,5 +1,7 @@
 import React from "react";
-import "./RadioSkill.css"
+import "./RadioSkill.css";
+
+// SS handle state to grab values 
 
 const RadioSkill = props => (
 
@@ -16,5 +18,3 @@ const RadioSkill = props => (
 )
 
 export default RadioSkill;
-
-// handleSubmit function on each page to save data/update state

@@ -2,7 +2,10 @@
  import "./connection.css";
 
  // This page holds the table that shows each job seeker/recruiter their "matches" based on survey score
+ 
  // Props needed: Table Headers for Recruiters and Job Seekers
+ // ajax call to grab matched job postings
+ // AM Buttons for start application, decline 
 
  class ConnectionsJobSeeker extends Component {
  	render () {

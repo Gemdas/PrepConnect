@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Typewriter from "../Typewriter";
 import "./WelcomeScreen.css";
 
+// CHANGE IMAGE TO SOMETHING BLUE OR ORANGE
+
 class WelcomeScreen extends Component {
 	render () {
 		return (

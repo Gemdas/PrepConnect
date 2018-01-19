@@ -1,5 +1,5 @@
 import React from "react";
-import Editor from "../Editor";
+import htmlEditor from "../Editor";
 
 // add state for values
 

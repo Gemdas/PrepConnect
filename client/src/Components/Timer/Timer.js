@@ -1,6 +1,9 @@
 import React from "react";
 import "./Timer.css";
 
+// AM function for timer end to close application and change status to 'under review'
+// alert for end time 
+
 class Timer extends React.Component {
   constructor() {
     super();
