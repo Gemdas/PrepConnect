@@ -8,9 +8,9 @@ import "./PostJob.css";
 
 // This page holds the Update Account Page
 
-// validate buttons open text box for recruiter to submit question
-// submit button to post the job to match with job seekers 
-// recruiter defines their minimum compatibility 
+// need validate buttons to open a text box for recruiters to submit their questions
+// need to handle the submit, use Brennan's algorithm to match with job seekers
+// Have recruiter define their minimum % compatibility
 
 class PostJob extends Component {
 	render () {
