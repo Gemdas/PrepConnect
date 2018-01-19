@@ -11,7 +11,7 @@ const PrepQuestion = props => (
 			{props.question}
 		</div>
 		<p className="topaAswer">{props.answer}</p>
-		<a class="btn btn-primary" href={"/" + props.questionId} role="button">View Answers</a>
+		<a class="btn btn-primary" href={"/dashboard/prep/" + props.questionId} role="button">View Answers</a>
 	</div>
 
 )

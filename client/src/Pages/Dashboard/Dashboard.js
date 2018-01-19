@@ -107,7 +107,7 @@ class Dashboard extends Component {
 					                	<Route path="/js_connections" component={ConnectionsJobSeeker} />
 					                	<Route path="/post" component={PostJob} />
 					                	<Route exact path="/prep" component={Prep} />
-					                	<Route path="/prep/:question" component={SingleQuestion} />
+					                	<Route path="prep/:question" component={SingleQuestion} />
 					                	<Route path="/rec_connections" component={ConnectionsRecruiter} />
 					                	<Route path="/postings" component={CurrentPostings} />
 					                </Switch>

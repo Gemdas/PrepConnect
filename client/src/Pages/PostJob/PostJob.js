@@ -4,12 +4,14 @@ import React, { Component } from 'react';
 import Radio from "../../Components/Slider";
 import SubmitBtn from "../../Components/SubmitBtn";
 import Autosuggest from "../../Components/Autosuggest";
+import ValidateQuestion from "../../Components/ValidateQuestion";
 import "./PostJob.css";
 
 // This page holds the Update Account Page
 
 // need validate buttons to open a text box for recruiters to submit their questions
 // need to handle the submit, use Brennan's algorithm to match with job seekers
+// onClick for validate button, opens up modal with ValidateQuestion component
 // Have recruiter define their minimum % compatibility
 
 class PostJob extends Component {
@@ -43,6 +45,7 @@ class PostJob extends Component {
 				  			<div>
 				  				<Radio skill="HTML" />
 				  				<SubmitBtn label="Validate" className="validateBtn" onClick={this.handleAddValidatation} id="validate-html"/>
+				  				<ValidateQuestion />
 				  			</div>
 				  			<div>
 				  				<Radio skill="CSS" />
