@@ -13,6 +13,13 @@ class JavascriptEditor extends Component {
     const editor = this.ace.editor; // The editor object is from Ace's API
     console.log(editor.getValue()); // Outputs the value of the editor
   }
+
+  // Code from doc used to extract text from the editor
+  onSelectionChange(selection) {
+    const content = this.refs.aceEditor.editor.session.getTextRange(selection.getRange());
+    // use content
+  }
+
   render() {
     return (
       <AceEditor
