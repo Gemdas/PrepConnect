@@ -1,1 +1,7 @@
-// Function to grab values from editors
+
+// FUNCTION TO GRAB VALUES FROM EDITORS
+
+export * from "./cssEditor";
+export * from "./htmlEditor";
+export * from "./jsEditor";
+

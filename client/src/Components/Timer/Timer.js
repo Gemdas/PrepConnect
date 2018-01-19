@@ -1,7 +1,8 @@
 import React from "react";
 import "./Timer.css";
 
-// Function to stop typing after timer runs out
+// AM function for timer end to close application and change status to 'under review'
+// alert for end time 
 
 class Timer extends React.Component {
   constructor() {

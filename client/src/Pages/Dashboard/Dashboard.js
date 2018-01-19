@@ -7,9 +7,12 @@ import ConnectionsJobSeeker from "../ConnectionsJobSeeker";
 import PostJob from "../PostJob";
 import Prep from "../Prep";
 import ConnectionsRecruiter from "../ConnectionsRecruiter";
+import CurrentPostings from "../CurrentPostings";
+import SingleQuestion from "../SingleQuestion";
 
 
 // This page holds the Dashboard Shell Component
+// remove blue from bottom
 
 class Dashboard extends Component {
 
@@ -57,7 +60,7 @@ class Dashboard extends Component {
 					                    </Link>
 					                </li>
 					                <li>
-					                    <Link to="#">
+					                    <Link to="/postings">
 					                        <i className="pe-7s-copy-file"></i>
 					                        <p>Current Postings</p>
 					                    </Link>
@@ -98,16 +101,16 @@ class Dashboard extends Component {
 				        <div className="content content-wrapper dashboard-wrapper">
 				            <div className="container-fluid">
 				            <HashRouter>
-				                <div className="row">
 					                <Switch>
 					                	<Route exact path="/" component={WelcomeScreen} />
 					                	<Route path="/update" component={UpdateAccount} />
 					                	<Route path="/js_connections" component={ConnectionsJobSeeker} />
 					                	<Route path="/post" component={PostJob} />
-					                	<Route path="/prep" component={Prep} />
+					                	<Route exact path="/prep" component={Prep} />
+					                	<Route path="prep/:question" component={SingleQuestion} />
 					                	<Route path="/rec_connections" component={ConnectionsRecruiter} />
+					                	<Route path="/postings" component={CurrentPostings} />
 					                </Switch>
-				                </div>
 				            </HashRouter>
 				            </div>
 				        </div>
