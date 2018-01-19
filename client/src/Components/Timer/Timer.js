@@ -1,6 +1,8 @@
 import React from "react";
 import "./Timer.css";
 
+// Function to stop typing after timer runs out
+
 class Timer extends React.Component {
   constructor() {
     super();

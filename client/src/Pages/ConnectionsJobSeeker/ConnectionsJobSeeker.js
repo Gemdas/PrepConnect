@@ -3,6 +3,7 @@
 
  // This page holds the table that shows each job seeker/recruiter their "matches" based on survey score
  // Props needed: Table Headers for Recruiters and Job Seekers
+ // Buttons for taking or declining interview
 
  class ConnectionsJobSeeker extends Component {
  	render () {

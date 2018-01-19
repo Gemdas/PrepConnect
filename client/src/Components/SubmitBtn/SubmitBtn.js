@@ -1,5 +1,7 @@
 import React from "react";
 
+// handleSubmit function on each page to save data/update state
+
 const SubmitBtn = props => (
 	<button
         className="btn btn-success submitBtn"
@@ -8,5 +10,3 @@ const SubmitBtn = props => (
 )
 
 export default SubmitBtn;
-
-// handleSubmit function on each page to save data/update state

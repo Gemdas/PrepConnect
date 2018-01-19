@@ -4,7 +4,7 @@ import SubmitBtn from "../../Components/SubmitBtn";
 import "./UpdateAccount.css";
 
 // This page holds the Update Account Page
-// Components needed: Slider and Submit Button
+// save button to update their skills in the database
 
 class UpdateAccount extends Component {
 	render () {
