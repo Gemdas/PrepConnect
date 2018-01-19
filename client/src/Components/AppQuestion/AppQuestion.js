@@ -9,7 +9,7 @@ const AppQuestion = props => (
 		<div className="appQuestion">
 			{props.question}
 		</div>
-		<Editor mode={props.language}/>
+		<htmlEditor mode={props.language}/>
 	</div>
 
 )

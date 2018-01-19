@@ -10,7 +10,4 @@ const SubmitBtn = props => (
 )
 
 export default SubmitBtn;
-<<<<<<< HEAD
 
-=======
->>>>>>> master

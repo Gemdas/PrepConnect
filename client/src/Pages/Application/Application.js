@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppQuestion from "../../Components/AppQuestion";
+// import AppQuestion from "../../Components/AppQuestion";
 
 // questions from recruiter with editors for each
 // submit button that grabs values for each editor 
@@ -10,7 +10,7 @@ class Application extends Component {
 	render () {
 		return (
 			<div>
-				<AppQuestion question="sample question" language="html"/>
+				{/*<AppQuestion question="sample question" language="html"/>*/}
 			</div>
 		)
 	}

@@ -13,9 +13,6 @@ class RadioSkill extends React.Component {
 	handleInputChange = event => {
 		const { value } = event.target;
 
-<<<<<<< HEAD
-export default RadioSkill;
-=======
 		this.setState({
 			[value]: value
 		});
@@ -38,4 +35,3 @@ export default RadioSkill;
 }
 
 export default RadioSkill;
->>>>>>> master

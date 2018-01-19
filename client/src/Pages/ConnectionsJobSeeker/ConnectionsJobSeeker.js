@@ -5,29 +5,30 @@
  
  // Props needed: Table Headers for Recruiters and Job Seekers
  // ajax call to grab matched job postings
- // AM Buttons for start application, decline 
+
+ // application (either begin or review)
 
  class ConnectionsJobSeeker extends Component {
  	render () {
  		return (
- 			<div className="ConnectionsJobSeeker content-wrapper">
+			<div className="ConnectionsJobSeeker content-wrapper">
 	 			<table className="table">
 				  <thead>
 				    <tr>
 				      <th scope="col">Job Title</th>
 				      <th scope="col">Company</th>
-				      <th scope="col">Status</th>
-				      <th scope="col">Option</th>
+				      <th scope="col">% Matched</th>
+				      <th scope="col">App</th>
 				      <th scope="col">Decline</th>
 				    </tr>
 				  </thead>
 				  <tbody>
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>props</td>
-				      <td>props</td>
-				      <td>props</td>
-				      <td>props</td>
+				      <td scope="row">props.jobTitle</td>
+				      <td>props.company</td>
+				      <td>props.%matched</td>
+				      <td><button className="btn btn-primary tableBtn">props.app</button></td>
+				      <td><button className="btn btn-danger tableBtn">Decline</button></td>
 				    </tr>
 				  </tbody>
 				</table>
