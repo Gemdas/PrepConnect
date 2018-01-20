@@ -8,6 +8,12 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongoose": "^4.13.9"
+    "mongoose": "^4.13.9",
+    "@okta/okta-auth-js": "^1.11.0",
+    "@okta/okta-react": "^0.0.11",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.0"
   }
 }
