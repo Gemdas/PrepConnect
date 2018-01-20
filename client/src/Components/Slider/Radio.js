@@ -22,7 +22,7 @@ class RadioSkill extends React.Component {
 		return (
 			<form className="skill">
 				<div className="input-group skill-q">
-					
+					<h2>{this.props.skill}</h2>
 					<label className="radio-inline"><input type="radio" name="skill-" value={0} onClick={this.handleInputChange.bind(this)} />N/A</label>
 					<label className="radio-inline"><input type="radio" name="skill-" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>
 					<label className="radio-inline"><input type="radio" name="skill-" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>
