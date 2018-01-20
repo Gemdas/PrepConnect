@@ -7,7 +7,7 @@ import "./RadioSkill.css";
 
 class RadioSkill extends React.Component {
 	state = {
-		value: ""
+		value: 0
 	};
 
 	handleInputChange = event => {
@@ -19,10 +19,10 @@ class RadioSkill extends React.Component {
 	};
 
 	render () {
-		console.log(this.state);
+		
 		return (
 			<form className="skill">
-				<div className="input-group skill-q">
+				<div className="input-group skill-q" id= {this.props.skill} default={this.state.value}>
 					<h2>{this.props.skill}</h2>
 					<label className="radio-inline"><input type="radio" name="skill-" value={0} onClick={this.handleInputChange.bind(this)} />N/A</label>
 					<label className="radio-inline"><input type="radio" name="skill-" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>

@@ -7,7 +7,6 @@ import './login.css';
 
 class Login extends Component {
 
-  
     state = { 
       checkboxChecked: false, 
       email: "", 
@@ -32,10 +31,12 @@ class Login extends Component {
     
     handleSubmit = event => {
       event.preventDefault();
+      console.log("handle submit working");
     }
     
     handleCreateAccount = event => {
       event.preventDefault();
+      console.log("handle create account working");
     }
 
   render() {
@@ -68,11 +69,11 @@ class Login extends Component {
                 <div className="row">
                     <div className="col-sm-6">
                     <Link to="/dashboard">
-                      <button type="submit" className="btn btn-outline" onSubmit={this.handleSubmit}>Submit</button>
+                      <button type="submit" className="btn btn-outline" onClick={this.handleSubmit}>Submit</button>
                     </Link>
                     </div>
                     <div className="col-sm-6">
-                      <button type="submit" className="btn btn-outline" onSubmit={this.handleCreateAccount}>Create an account</button>
+                      <button type="submit" className="btn btn-outline" onClick={this.handleCreateAccount}>Create an account</button>
                     </div>
                 </div>
             </form>
