@@ -2,7 +2,7 @@ import brace from 'brace';
 import AceEditor from 'react-ace';
 import React, { Component } from 'react';
  
-class HtmlEditor extends Component {
+export class HtmlEditor extends Component {
   constructor() {
     super();
     this.onChange = this.onChange.bind(this);
@@ -33,5 +33,3 @@ class HtmlEditor extends Component {
     );
   }
 }
-
-export default HtmlEditor;

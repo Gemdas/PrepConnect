@@ -1,5 +1,5 @@
 import React from "react";
-import htmlEditor from "../Editor";
+import { HtmlEditor } from "../Editor";
 
 // add state for values
 
@@ -9,7 +9,7 @@ const AppQuestion = props => (
 		<div className="appQuestion">
 			{props.question}
 		</div>
-		<htmlEditor mode={props.language}/>
+		<HtmlEditor />
 	</div>
 
 )

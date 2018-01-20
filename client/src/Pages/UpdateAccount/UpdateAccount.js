@@ -40,7 +40,7 @@ class UpdateAccount extends Component {
 					  		<Radio skill="MySQL" />
 					  		<Radio skill="MongoDB" />
 					  		<Radio skill="React" />
-					  		<SubmitBtn label="Save" />`
+					  		<SubmitBtn label="Save" />
 				  		</div>
 
 				  		

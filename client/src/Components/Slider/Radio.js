@@ -14,11 +14,12 @@ class RadioSkill extends React.Component {
 		const { value } = event.target;
 
 		this.setState({
-			[value]: value
+			value: value
 		});
 	};
 
 	render () {
+		console.log(this.state);
 		return (
 			<form className="skill">
 				<div className="input-group skill-q">

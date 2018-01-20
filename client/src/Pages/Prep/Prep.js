@@ -15,7 +15,7 @@
  				<div className="col-sm-3"></div>
  				<div className="col-sm-3">
 	 				<div className="form-group">
-					    <label for="prepTopic" className="topic prepDropdown">Topic</label>
+					    <label htmlFor="prepTopic" className="topic prepDropdown">Topic</label>
 					    <select className="form-control studyTopics" id="prepTopic">
 					    	<option selected>Choose...</option>
 					      <option id="htmlPrep" value="html">HTML</option>
@@ -30,7 +30,7 @@
 			 	</div>
 		 		<div className="col-sm-3">
 		 			<div className="form-group">
-					    <label for="studySkillLevel" className="studySkillLevel prepDropdown">Skill Level</label>
+					    <label htmlFor="studySkillLevel" className="studySkillLevel prepDropdown">Skill Level</label>
 					    <select className="form-control skillLevels" id="studySkillLevel">
 					      <option selected>Choose...</option>
 					      <option id="beginner" value="1">Beginner</option>
