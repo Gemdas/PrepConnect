@@ -3,6 +3,11 @@
   height: 1000px;
 }
 
+.loginBackground {
+  background-image: url("http://images.all-free-download.com/images/graphiclarge/seamless_network_background_312309.jpg");
+  background-size: cover;
+}
+
 .content-wrapper {
 	background-color: #FCFCFC;
 }
@@ -19,4 +24,15 @@
 .btn {
   color: #FF7E67;
   border-color: #FF7E67;
+}
+
+.recruiterCheck {
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+  -moz-appearance: checkbox;    /* Firefox */
+  -ms-appearance: checkbox;     /* not currently supported */
 }
