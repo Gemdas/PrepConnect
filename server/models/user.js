@@ -13,7 +13,7 @@ const UserSchema = new Schema({
 	// isRecruiter:{type: Boolean, default: false},
 	// github: String,
 	// linkedin: String,
-	// profolio: String,
+	// portfolio: String,
 	codeAbility:[SkillSchema],
 	appliedForPostings: [Schema.Types.ObjectId] 
 });

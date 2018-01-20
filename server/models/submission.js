@@ -13,8 +13,8 @@ const SubmissionSchema = new Schema({
 	email: {type: String, required: true},
 	github: String,
 	linkedin: String,
-	profolio: String,
-	respones:[QuestionSchema]
+	portfolio: String,
+	responses:[QuestionSchema]
 })
 
 module.exports = mongoose.model("Submission", SubmissionSchema);
