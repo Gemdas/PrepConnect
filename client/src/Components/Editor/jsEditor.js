@@ -2,7 +2,7 @@ import brace from 'brace';
 import AceEditor from 'react-ace';
 import React, { Component } from 'react';
  
-class JavascriptEditor extends Component {
+export class JavascriptEditor extends Component {
   constructor() {
     super();
     this.onChange = this.onChange.bind(this);
@@ -34,4 +34,3 @@ class JavascriptEditor extends Component {
   }
 }
 
-export default JavascriptEditor;

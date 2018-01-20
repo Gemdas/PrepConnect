@@ -8,7 +8,7 @@ import './login.css';
 class Login extends Component {
   render() {
     return (
-      <div className="wrapper">
+      <div className="wrapper" data-color="blue" data-image="http://images.all-free-download.com/images/graphiclarge/seamless_network_background_312309.jpg">
           <div className="card-body row align-items-center">
           
             <div className="col-sm-6 loginForm">
