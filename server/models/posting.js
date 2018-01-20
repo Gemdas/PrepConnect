@@ -14,7 +14,7 @@ const QuestionSchema = new Schema({
 const PostingSchema = new Schema({
 	jobTitle : {type: String, required: true},
 	company : {type: String, required: true},
-	authorId : Schema.Types.ObjectId,
+	recruiterId : Schema.Types.ObjectId,
 	codeRequirements:[SkillSchema],
 	compatibilityExpectation: {type:Number, required: true},
 	questions:[QuestionSchema]

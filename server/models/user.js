@@ -6,14 +6,14 @@ const SkillSchema = new Schema({
 	compentency: Number
 });
 const UserSchema = new Schema({
-	firstName: {type: String, required: true},
-	lastName: {type: String, required: true},
-	email: {type: String, required: true},
-	password:{type: String, minlength: 8, required:true},
-	isRecruiter:{type: Boolean, default: false},
-	github: String,
-	linkedin: String,
-	profolio: String,
+	// firstName: {type: String, required: true},
+	// lastName: {type: String, required: true},
+	// email: {type: String, required: true},
+	// password:{type: String, minlength: 8, required:true},
+	// isRecruiter:{type: Boolean, default: false},
+	// github: String,
+	// linkedin: String,
+	// profolio: String,
 	codeAbility:[SkillSchema],
 	appliedForPostings: [Schema.Types.ObjectId] 
 });
