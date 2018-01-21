@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, HashRouter, Switch, Link } from "react-router-dom";
+import { withAuth } from '@okta/okta-react';
 import './dashboard.css';
 import WelcomeScreen from "../../Components/WelcomeScreen";
 import UpdateAccount from "../UpdateAccount";
@@ -14,9 +15,43 @@ import SingleQuestion from "../SingleQuestion";
 // This page holds the Dashboard Shell Component
 // remove blue from bottom
 
-class Dashboard extends Component {
+export default withAuth(class Dashboard extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = { 
+			authenticated: null, 
+			user: null 
+		};
+		this.checkAuthentication = this.checkAuthentication.bind(this);
+		this.getCurrentUser = this.getCurrentUser.bind(this);
+		this.checkAuthentication();
+	  }
+
+	  async getCurrentUser(){
+		this.props.auth.getUser()
+		  .then(user => this.setState({user}));
+	  }
+	
+	  async checkAuthentication() {
+		const authenticated = await this.props.auth.isAuthenticated();
+		if (authenticated !== this.state.authenticated) {
+		  this.setState({ authenticated });
+		}
+	  }
+
+	  componentDidMount(){
+		this.getCurrentUser();
+	  }
+	
+	  componentDidUpdate() {
+		this.checkAuthentication();
+	  }
 
 	render () {
+		if(!this.state.user) return null;
+		if (this.state.authenticated === null) return null;
+		const authNav = this.state.authenticated;
 		return (
 			<div className="Dashboard">
 	        	<div className="wrapper">
@@ -26,7 +61,8 @@ class Dashboard extends Component {
 					            <ul className="nav">
 					                <li>
 					                	<Link to="/">
-					                		<p className="welcome">Welcome User</p>
+											<p className="welcome">Welcome</p>
+											<p className="welcome">{this.state.user.name}</p>
 				                		</Link>
 					                </li>
 					                <li>
@@ -86,14 +122,10 @@ class Dashboard extends Component {
 			                    	</a>
 				                </div>
 				                <div className="collapse navbar-collapse">
-				                    <ul className="nav navbar-nav navbar-right">
-				                        <li>
-				                           <a href="#" className="nav-text">
-				                               Logout
-				                               <i className="fa fa-sign-out nav-text"></i>
-				                            </a>
-				                        </li>
-				                    </ul>
+									<ul className="nav navbar-nav navbar-right auth-nav">
+										<li><a className="nav-text" href="javascript:void(0)" onClick={this.props.auth.logout}>Logout</a></li>
+										<i className="fa fa-sign-out nav-text"></i>
+									</ul>
 				                </div>
 				            </div>
 				        </nav>
@@ -120,6 +152,4 @@ class Dashboard extends Component {
 
 		)
 	}
-}
-
-export default Dashboard;
+})

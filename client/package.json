@@ -2,7 +2,10 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
+    "@okta/okta-auth-js": "^1.11.0",
+    "@okta/okta-react": "0.0.11",
     "brace": "^0.11.0",
     "rc-slider": "^8.6.0",
     "react": "^16.2.0",
