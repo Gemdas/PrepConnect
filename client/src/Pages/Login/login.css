@@ -12,6 +12,10 @@
 	background-color: #FCFCFC;
 }
 
+.submitBtn {
+  margin: 0 auto;
+}
+
 
 .loginForm {
   background-color: #FAFAFA;
@@ -26,10 +30,7 @@
   border-color: #FF7E67;
 }
 
-.recruiterCheck {
-  margin-left: 5px;
-  margin-bottom: 15px;
-}
+
 
 input[type="checkbox"] {
   -webkit-appearance: checkbox; /* Chrome, Safari, Opera */

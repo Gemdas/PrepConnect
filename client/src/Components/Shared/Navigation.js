@@ -34,10 +34,7 @@ export default withAuth(class Navigation extends React.Component {
       </ul>;
     return (
       <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          {authNav}
-        </ul>
+        
       </nav>
     )
   }

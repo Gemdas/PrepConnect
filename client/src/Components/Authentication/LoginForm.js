@@ -1,6 +1,7 @@
 import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
+import '../../Pages/Login/login.css';
 
 export default withAuth(class LoginForm extends React.Component {
   constructor(props) {
@@ -53,25 +54,40 @@ export default withAuth(class LoginForm extends React.Component {
     null;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        {errorMessage}
-        <div className="form-element">
-          <label>Username:</label>
-          <input
-            id="username" type="text"
-            value={this.state.username}
-            onChange={this.handleUsernameChange} />
-        </div>
+    <div className="wrapper loginBackground">
+        <div className="card-body row align-items-center">
+            <div className="col-sm-6 loginForm">
+                <div className="card-header">
+                    <h1 className="card-title">Welcome to PrepConnect</h1>
+                    <h3 className="card-subtitle mb-2 text-muted">Nail the Interview!</h3>
+                    <h4 className="card-text">Interviewing made easy. Create an account or log in to review actual interview questions, or initiate an interview for a job matching your skill!</h4>              
+                </div>
+                <br />
+            <form onSubmit={this.handleSubmit}>
+                {errorMessage}
+                <div className="form-element form-group">
+                    <label>Username:</label>
+                    <input
+                        id="username" type="text"
+                        value={this.state.username}
+                        className="form-control"
+                        onChange={this.handleUsernameChange} />
+                </div>
 
-        <div className="form-element">
-          <label>Password:</label>
-          <input
-            id="password" type="password"
-            value={this.state.password}
-            onChange={this.handlePasswordChange} />
+                <div className="form-element form-group">
+                    <label>Password:</label>
+                    <input
+                        id="password" type="password"
+                        value={this.state.password}
+                        className="form-control"
+                        onChange={this.handlePasswordChange} />
+                </div>
+                <input className="btn btn-success submitBtn" id="submit" type="submit" value="Login" />
+                <p className="text-center">No account? <a href="/register">Create one.</a></p>
+            </form>
         </div>
-        <input id="submit" type="submit" value="Submit" />
-      </form>
+    </div>
+</div>
     );
   }
 });

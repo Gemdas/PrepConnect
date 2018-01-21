@@ -34,7 +34,7 @@ export default class App extends Component {
       <div className="App">
         <Navigation />
         <main>
-          <Route path="/" exact component={HomePage} />
+          <Route exact path="/" render={() => <LoginPage baseUrl={config.url} />} />
           <Route path="/login" render={() => <LoginPage baseUrl={config.url} />} />
           <Route path="/implicit/callback" component={ImplicitCallback} />
           <Route path="/register" component={RegistrationForm} />
