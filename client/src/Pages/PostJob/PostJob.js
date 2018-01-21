@@ -39,7 +39,7 @@ class PostJob extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		const skillsArray = [];
-		for (key in this.state){
+		for (let key in this.state){
 			skillsArray.push({
 				language: key,
 				competency: this.state[key]
