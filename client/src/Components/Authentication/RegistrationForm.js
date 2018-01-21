@@ -12,6 +12,7 @@ export default withAuth(class RegistrationForm extends React.Component{
       lastName: '',
       email: '',
       password: '',
+      userId: '',
       recruiter: false,
       sessionToken: null
     };
@@ -57,23 +58,38 @@ export default withAuth(class RegistrationForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    fetch('/apiokta', { 
-      method: 'POST', 
+
+    fetch("api/user", {
+      method: "POST", 
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(this.state)
-    }).then(user => {
-      this.oktaAuth.signIn({
-        username: this.state.email,
-        password: this.state.password
+      body: "{}"
+    }).then(data => {
+      const results = this.state;
+      alert(data);
+      results["userId"] = data._id;
+
+      fetch('/apiokta', { 
+        method: 'POST', 
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(results)
+      }).then(user => {
+        /* this.oktaAuth.signIn({
+          username: this.state.email,
+          password: this.state.password */
+        }) 
+        .then(res => this.setState({
+          sessionToken: res.sessionToken
+        }));
       })
-      .then(res => this.setState({
-        sessionToken: res.sessionToken
-      }));
-    })
-    .catch(err => console.log);
+      .catch(err => console.log);
+    }).catch(err => console.log(err));
+    
   }
 
   render(){
