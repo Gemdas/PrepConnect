@@ -15,6 +15,6 @@ const UserSchema = new Schema({
 	// linkedin: String,
 	// portfolio: String,
 	codeAbility:[SkillSchema],
-	appliedForPostings: [Schema.Types.ObjectId] 
+	interactedPostings: [Schema.Types.ObjectId] 
 });
 module.exports = mongoose.model("User", UserSchema);
