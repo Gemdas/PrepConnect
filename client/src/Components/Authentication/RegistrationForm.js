@@ -57,7 +57,7 @@ export default withAuth(class RegistrationForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    fetch('/api/users', { 
+    fetch('/apiokta/users', { 
       method: 'POST', 
       headers: {
         'Accept': 'application/json',

@@ -30,6 +30,11 @@
   border-color: #FF7E67;
 }
 
+.loginBtn {
+  width: 10%;
+  height: 100%;
+}
+
 
 
 input[type="checkbox"] {

@@ -82,7 +82,7 @@ export default withAuth(class LoginForm extends React.Component {
                         className="form-control"
                         onChange={this.handlePasswordChange} />
                 </div>
-                <input className="btn btn-success submitBtn" id="submit" type="submit" value="Login" />
+                <input className="btn btn-success loginBtn" id="submit" type="submit" value="Login" />
                 <p className="text-center">No account? <a href="/register">Create one.</a></p>
             </form>
         </div>
