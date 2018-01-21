@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const SkillSchema = new Schema({
 	language: String,
-	compentency: Number
+	competency: Number
 });
 
 const QuestionSchema = new Schema({
