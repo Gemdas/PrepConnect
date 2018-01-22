@@ -6,12 +6,12 @@ import React from "react";
 const ValidateQuestion = props => (
 
 	<div>
-		<form>
+		
   			<div className="form-group">
     			<label htmlFor="validationQuestion">Enter your props.skillLevel props.language question below</label>
-    			<textarea className="form-control form-control-lg" type="text" id="validationQuestion" value="" rows="3" placeholder="Write a function for FizzBuzz"></textarea>
+    			<textarea className="form-control form-control-lg" type="text" onChange={props.question} id={props.id} rows="3" placeholder="Write a function for FizzBuzz"></textarea>
   			</div>
-		</form>
+		
 	</div>
 )
 

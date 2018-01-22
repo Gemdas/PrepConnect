@@ -1,5 +1,6 @@
  import React, { Component } from 'react';
  import "./CurrentPostings.css";
+ import { JobRow } from "../../Components/Connections";
  import SubmitBtn from "../../Components/SubmitBtn";
 
  // ajax call to grab current and previous applications from recruiter id
@@ -19,12 +20,7 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <td>props.jobTitle</td>
-				      <td>props.company</td>
-				      <td>props.#OfMatches</td>
-				      <td><button className="btn btn-primary tableBtn">Action</button></td>
-				    </tr>
+				    <JobRow jobTitle="title" company="company" allMatches={15} />
 				  </tbody>
 				</table>
 			</div>

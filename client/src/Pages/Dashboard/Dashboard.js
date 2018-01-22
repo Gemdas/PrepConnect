@@ -11,6 +11,7 @@ import CurrentPostings from "../CurrentPostings";
 import SingleQuestion from "../SingleQuestion";
 
 
+
 // This page holds the Dashboard Shell Component
 // remove blue from bottom
 
@@ -109,6 +110,7 @@ class Dashboard extends Component {
 					                	<Route exact path="/prep" component={Prep} />
 					                	<Route path="prep/:question" component={SingleQuestion} />
 					                	<Route path="/rec_connections" component={ConnectionsRecruiter} />
+					                	
 					                	<Route path="/postings" component={CurrentPostings} />
 					                </Switch>
 				            </HashRouter>

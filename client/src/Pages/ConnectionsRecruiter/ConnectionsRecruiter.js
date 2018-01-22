@@ -1,4 +1,5 @@
  import React, { Component } from 'react';
+ import { RecRow } from "../../Components/Connections";
  import "./connection.css";
  import SubmitBtn from "../../Components/SubmitBtn";
 
@@ -21,15 +22,7 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <th scope="row">props.username</th>
-				      <td>props.jobTitle</td>
-				      <td>props.company</td>
-				      <td><button className="btn btn-primary tableBtn">props.action</button></td>
-				      <td>props.%matched</td>
-				      <td><button className="btn btn-success tableBtn" hfref="mailto:props.userEmail">Contact</button></td>
-				      <td><button className="btn btn-danger tableBtn">Decline</button></td>
-				    </tr>
+				    <RecRow jobTitle="title" company="company" matched={95} />
 				  </tbody>
 				</table>
 			</div>

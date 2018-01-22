@@ -1,4 +1,5 @@
  import React, { Component } from 'react';
+ import { JsRow } from "../../Components/Connections";
  import "./connection.css";
 
  // This page holds the table that shows each job seeker/recruiter their "matches" based on survey score
@@ -9,6 +10,8 @@
  // application (either begin or review)
 
  class ConnectionsJobSeeker extends Component {
+
+
  	render () {
  		return (
 			<div className="ConnectionsJobSeeker content-wrapper">
@@ -16,23 +19,21 @@
 				  <thead>
 				    <tr>
 				      <th scope="col">Job Title</th>
+				      <th scope="col">Job Salary</th>
 				      <th scope="col">Company</th>
 				      <th scope="col">% Matched</th>
-				      <th scope="col">App</th>
+				      <th scope="col">Apply</th>
 				      <th scope="col">Decline</th>
+
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <td scope="row">props.jobTitle</td>
-				      <td>props.company</td>
-				      <td>props.%matched</td>
-				      <td><button className="btn btn-primary tableBtn">props.app</button></td>
-				      <td><button className="btn btn-danger tableBtn">Decline</button></td>
-				    </tr>
+				    <JsRow jobTitle="title" salary="$$" company="company" matched={100} />
 				  </tbody>
 				</table>
 			</div>
+
+
  		)
  	}
  }

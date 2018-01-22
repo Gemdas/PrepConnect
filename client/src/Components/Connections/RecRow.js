@@ -1,9 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, HashRouter, Switch, Link } from "react-router-dom";
+ import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 
+// Props.Action should show a modal displaying jobSeeker answers, and links to their github, linkedin, portfolio
 
-export class JsRow extends React.Component {
+export class RecRow extends React.Component {
+
 	constructor(props){
 		super(props)
 		console.log(props);
@@ -24,38 +25,34 @@ export class JsRow extends React.Component {
 	HandleCloseModal = event => {
 		this.setState({ showModal: false });
 	};
-	
 
-	render () {
+	render() {
 		const modalStyles = {overlay: {zIndex: 10}};
-		return (
+		return(
 				<tr>
-			      <td scope="row">{this.props.jobTitle}</td>
-			      <td>{this.props.salary}</td>
-			      <td><a>{this.props.company}</a></td>
-			      <td>{this.props.matched}</td>
+			      <th scope="row">props.username</th>
+			      <td>{this.props.jobTitle}</td>
+			      <td>{this.props.company}</td>
 			      <td>
-			     
-				      	<button onClick={this.handleOpenModal} className="btn btn-primary tableBtn" id="application">Application</button>
-				      	
-				      	<ReactModal
+			      	<button onClick={this.handleOpenModal} className="btn btn-primary tableBtn">View Application</button>
+
+			      	<ReactModal
 				      		isOpen={this.state.showModal}
 				      		conentLabel="Show Application"
 				      		onRequestClose={this.handleCloseModal}
 				            shouldCloseOnOverlayClick={false}
 				            style={ modalStyles }
-				      	>
+				     >
 				      	
-				      	<button onClick={this.HandleCloseModal}>Exit Application</button>
-				      	</ReactModal>
-				      	
-			     
+			      	<button onClick={this.HandleCloseModal}>Exit Application</button>
+			      	</ReactModal>
+
 			      </td>
-			      
+			      <td>{this.props.matched}</td>
+			      <td><button className="btn btn-success tableBtn" hfref="mailto:props.userEmail">Contact</button></td>
 			      <td><button className="btn btn-danger tableBtn">Decline</button></td>
 			    </tr>
-		)
+			)
 	}
 }
-
 
