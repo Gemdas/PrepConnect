@@ -17,34 +17,92 @@ import "./PostJob.css";
 class PostJob extends Component {
 
 	state = {
-		html: 0,
-		css: 0,
-		javascript: 0, 
-		jquery: 0, 
-		mysql: 0,
-		mongodb: 0,
-		react: 0
+		skills: {
+			html: 0,
+			css: 0,
+			javascript: 0, 
+			jquery: 0, 
+			mysql: 0,
+			mongodb: 0,
+			react: 0
+		},
+		skillsq: {
+			"html-q": "",
+			"css-q": "",
+			"javascript-q": "",
+			"jquery-q": "",
+			"mysql-q":  "",
+			"mongod-q": "",
+			"react-q": ""
+		},
+		jobTitle: "",
+		companyName: "",
+		companyUrl: "",
+		salary: "",
+		compatibilityExpectation: 0
 	};
-
+	// handles skills object
 	handleInputChange = event => {
 		const { value, name } = event.target;
-		console.log(event.target.name);
-		console.log("Before tempObj" + this.state);
+		
 		let tempObj=this.state;
-		tempObj[name]=value;
+
+		tempObj.skills[name]=value;
 		this.setState(tempObj);
 		console.log("After tempObj" + this.state);
 	};
+	// handles job posting object
+	handlePostInfo = event => {
+		const { value, id } = event.target;
+		let postObj = this.state;
 
+		postObj[id]=value;
+		this.setState(postObj);
+	};
+	 // handles question change
+	handleQuestionChange = event => {
+		const { value, id } = event.target;
+		let qObj = this.state
+		console.log(qObj);
+
+		qObj.skillsq[id]=value;
+		this.setState(qObj);
+		console.log(value, id);
+	};
+	// handles submit button
 	handleSubmit = event => {
 		event.preventDefault();
-		const skillsArray = [];
-		for (let key in this.state){
-			skillsArray.push({
+		const codeRequirement = [];
+		const questions = [];
+
+
+		for (let key in this.state.skills){
+			codeRequirement.push({
 				language: key,
-				competency: this.state[key]
+				competency: this.state.skills[key]
 			})
 		}
+
+		for (let key in this.state.skillsq) {
+			if(this.state.skillsq[key]!==""){
+				questions.push({
+					type: key,
+					question: this.state.skillsq[key]
+				})
+			}
+		}
+		const data ={
+			jobTitle: this.state.jobTitle,
+			companyName: this.state.companyName,
+			companyUrl: this.state.companyUrl,
+			salary: this.state.salary,
+			compatibilityExpectation: this.state.compatibilityExpectation,
+			codeRequirement,
+			questions
+		}
+
+
+		console.log(data);
 	}
 
 	render () {
@@ -56,19 +114,23 @@ class PostJob extends Component {
 			  			<form>
 			  				<div className="form-group">
 							    <label htmlFor="jobtitle">Job Title</label>
-							    <Autosuggest className="form-control" />
-							    </div>
+							    <input type="text" className="form-control" id="jobTitle" onChange={this.handlePostInfo} aria-describedby="emailHelp" />
+							</div>
 							<div className="form-group">
 							    <label htmlFor="companyName">Company Name</label>
-							    <input type="text" className="form-control" id="companyName" aria-describedby="emailHelp" />
+							    <input type="text" className="form-control" id="companyName" onChange={this.handlePostInfo} aria-describedby="emailHelp" />
 							</div>
 							<div className="form-group">
 							    <label htmlFor="companyURL">Company URL</label>
-							    <input type="url" className="form-control" id="companyURL" aria-describedby="emailHelp"/>
+							    <input type="url" className="form-control" id="companyUrl" onChange={this.handlePostInfo} aria-describedby="emailHelp"/>
 							</div>
 							<div className="form-group">
 							    <label htmlFor="salary">Salary</label>
-							    <input type="text" className="form-control" id="salary" value="$" aria-describedby="emailHelp" />
+							    <input type="text" className="form-control" onChange={this.handlePostInfo} id="salary" aria-describedby="emailHelp" />
+							</div>
+							<div className="form-group">
+							    <label htmlFor="salary">Minimum Compatibility Desired</label>
+							    <input type="number" className="form-control" onChange={this.handlePostInfo} id="compatibility" aria-describedby="emailHelp" />
 							</div>
 			  			</form>
 				  		<div className="card-body text-center">
@@ -79,8 +141,9 @@ class PostJob extends Component {
 									<h2>HTML</h2>
 									<label className="radio-inline"><input type="radio" name="html" value={0} onClick={this.handleInputChange.bind(this)} />N/A</label>
 									<label className="radio-inline"><input type="radio" name="html" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>
-									<label className="radio-inline"><input type="radio" name="html" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>
+									<label className="radio-inline"><input type="radio" name="html" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>									
 									<label className="radio-inline"><input type="radio" name="html" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
+									<ValidateQuestion label="Question" id="html-q" question={this.handleQuestionChange} />
 								</div>
 							</form>
 							<form>
@@ -90,6 +153,7 @@ class PostJob extends Component {
 									<label className="radio-inline"><input type="radio" name="css" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>
 									<label className="radio-inline"><input type="radio" name="css" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>
 									<label className="radio-inline"><input type="radio" name="css" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
+									<ValidateQuestion label="Question" id="css-q" question={this.handleQuestionChange} />
 								</div>
 							</form>
 							<form>
@@ -99,6 +163,7 @@ class PostJob extends Component {
 									<label className="radio-inline"><input type="radio" name="javascript" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>
 									<label className="radio-inline"><input type="radio" name="javascript" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>
 									<label className="radio-inline"><input type="radio" name="javascript" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
+									<ValidateQuestion label="Question" id="javaS-q" question={this.handleQuestionChange} />
 								</div>
 							</form>
 							<form>
@@ -108,6 +173,7 @@ class PostJob extends Component {
 									<label className="radio-inline"><input type="radio" name="jquery" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>
 									<label className="radio-inline"><input type="radio" name="jquery" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>
 									<label className="radio-inline"><input type="radio" name="jquery" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
+									<ValidateQuestion label="Question" id="jquery-q" question={this.handleQuestionChange} />
 								</div>
 							</form>
 							<form>
@@ -117,6 +183,7 @@ class PostJob extends Component {
 									<label className="radio-inline"><input type="radio" name="mysql" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>
 									<label className="radio-inline"><input type="radio" name="mysql" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>
 									<label className="radio-inline"><input type="radio" name="mysql" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
+									<ValidateQuestion label="Question" id="sql-q" question={this.handleQuestionChange} />
 								</div>
 							</form>
 							<form>
@@ -126,6 +193,7 @@ class PostJob extends Component {
 									<label className="radio-inline"><input type="radio" name="mongodb" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>
 									<label className="radio-inline"><input type="radio" name="mongodb" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>
 									<label className="radio-inline"><input type="radio" name="mongodb" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
+									<ValidateQuestion label="Question" id="mongo-q" question={this.handleQuestionChange} />
 								</div>
 							</form>
 							<form>
@@ -135,6 +203,7 @@ class PostJob extends Component {
 									<label className="radio-inline"><input type="radio" name="react" value={1} onClick={this.handleInputChange.bind(this)} />Beginner</label>
 									<label className="radio-inline"><input type="radio" name="react" value={2} onClick={this.handleInputChange.bind(this)} />Intermediate</label>
 									<label className="radio-inline"><input type="radio" name="react" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
+									<ValidateQuestion label="Question" id="react-q" question={this.handleQuestionChange} />
 								</div>
 							</form>
 							<button type="submit" className="btn btn-sucess submitBtn" onClick={this.handleSubmit}>Post Job</button>

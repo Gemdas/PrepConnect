@@ -11,34 +11,54 @@ import "./UpdateAccount.css";
 class UpdateAccount extends Component {
 
 	state = {
-		html: 0,
-		css: 0,
-		javascript: 0, 
-		jquery: 0, 
-		mysql: 0,
-		mongodb: 0,
-		react: 0
+		skills: {
+			html: 0,
+			css: 0,
+			javascript: 0, 
+			jquery: 0, 
+			mysql: 0,
+			mongodb: 0,
+			react: 0
+		},
+		github: "",
+		linkedin: "",
+		portfolio: ""
+
 	};
 
 	handleInputChange = event => {
 		const { value, name } = event.target;
-		console.log(event.target.name);
-		console.log("Before tempObj" + this.state);
+		
 		let tempObj=this.state;
 		tempObj[name]=value;
+
 		this.setState(tempObj);
-		console.log("After tempObj" + this.state);
+	};
+
+	handleContactChange = event => {
+		const { value,id } = event.target;
+		let contObj = this.state;
+		contObj[id]=value;
+
+		this.setState(contObj);
 	};
 
 	handleSubmit = event => {
 		event.preventDefault();
-		const skillsArray = [];
-		for (let key in this.state){
-			skillsArray.push({
+		const codeAbility = [];
+		for (let key in this.state.skills){
+			codeAbility.push({
 				language: key,
 				competency: this.state[key]
 			})
 		}
+		const data={
+			github: this.state.github,
+			linkedin: this.state.linkedin, 
+			portfolio: this.state.portfolio,
+			codeAbility
+		}
+		console.log(data)
 	}
 	
 	render () {
@@ -49,15 +69,15 @@ class UpdateAccount extends Component {
 			  			<form>
 			  				<div className="form-group">
 							    <label htmlFor="github">GitHub Link</label>
-							    <input type="url" className="form-control" id="github" aria-describedby="emailHelp" placeholder="https://github.com/" />
+							    <input type="url" className="form-control" onChange={this.handleContactChange} id="github" aria-describedby="emailHelp" placeholder="https://github.com/" />
 							</div>
 							<div className="form-group">
 							    <label htmlFor="linkedin">LinkedIn</label>
-							    <input type="url" className="form-control" id="linkedin" aria-describedby="emailHelp" placeholder="https://www.linkedin.com/in/" />
+							    <input type="url" className="form-control" onChange={this.handleContactChange} id="linkedin" aria-describedby="emailHelp" placeholder="https://www.linkedin.com/in/" />
 							</div>
 							<div className="form-group">
 							    <label htmlFor="porfolio">Portfolio</label>
-							    <input type="url" className="form-control" id="porfolio" aria-describedby="emailHelp" placeholder="Enter Portfolio" />
+							    <input type="url" className="form-control" onChange={this.handleContactChange} id="portfolio" aria-describedby="emailHelp" placeholder="Enter Portfolio" />
 							</div>
 			  			</form>
 				  		<div className="card-body text-center">
