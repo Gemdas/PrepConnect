@@ -81,7 +81,7 @@ export default withAuth(class RegistrationForm extends React.Component{
       }).then(user => {
         this.oktaAuth.signIn({
           username: this.state.email,
-          password: this.state.password
+          password: this.state.password 
         }) 
         .then(res => this.setState({
           sessionToken: res.sessionToken
