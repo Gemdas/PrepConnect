@@ -147,7 +147,7 @@ class UpdateAccount extends Component {
 									<label className="radio-inline"><input type="radio" name="react" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
 								</div>
 							</form>
-							<button type="submit" className="btn btn-sucess submitBtn" onClick={this.handleSubmit}>Post Job</button>
+							<button type="submit" className="btn btn-sucess submitBtn" onClick={this.handleSubmit}>Update Account</button>
 				  		</div>
 
 				  		

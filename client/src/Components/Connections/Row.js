@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, HashRouter, Switch, Link } from "react-router-dom";
 import ReactModal from 'react-modal';
+import { JavascriptEditor } from '../Editor';
+import Application from '../../Pages/Application';
 
 
 export class JsRow extends React.Component {
@@ -45,8 +47,9 @@ export class JsRow extends React.Component {
 				            shouldCloseOnOverlayClick={false}
 				            style={ modalStyles }
 				      	>
-				      	
+				      	<Application skills="JavaScript" skillsq="FizzBuzz" />
 				      	<button onClick={this.HandleCloseModal}>Exit Application</button>
+				      	
 				      	</ReactModal>
 				      	
 			     

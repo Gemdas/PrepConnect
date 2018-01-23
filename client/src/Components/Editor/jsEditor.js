@@ -12,6 +12,9 @@ export class JavascriptEditor extends Component {
  
     const editor = this.ace.editor; // The editor object is from Ace's API
     console.log(editor.getValue()); // Outputs the value of the editor
+
+    // const input = this.refs.aceEditor.editor.session.getTextRange(selection.getRange());
+    this.props.handleEditorInput(newValue)
   }
 
   // Code from doc used to extract text from the editor
@@ -28,6 +31,7 @@ export class JavascriptEditor extends Component {
         setReadOnly= 'false'
         onChange={this.onChange}
         style={{ height: '400px' }}
+        value={this.props.value}
         ref={instance => { this.ace = instance; }} // Let's put things into scope
       />
     );

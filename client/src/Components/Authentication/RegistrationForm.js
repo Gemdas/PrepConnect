@@ -79,7 +79,7 @@ export default withAuth(class RegistrationForm extends React.Component{
         },
         body: JSON.stringify(results)
       }).then(user => {
-         this.oktaAuth.signIn({
+        this.oktaAuth.signIn({
           username: this.state.email,
           password: this.state.password 
         }) 

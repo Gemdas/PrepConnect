@@ -1,5 +1,6 @@
  import React from 'react';
  import ReactModal from 'react-modal';
+ import VotingBtn from '../VotingBtn';
 
  export class JobRow extends React.Component {
  	constructor (props) {
@@ -39,9 +40,14 @@
 		      		onRequestClose={this.handleCloseModal}
 		            shouldCloseOnOverlayClick={false}
 		            style={ modalStyles }
+		            contentLabel="Modal"
 				>
-				      	
+				<div>
 		      	<button onClick={this.HandleCloseModal}>Exit Application</button>
+		      	<p>This is a Test</p>
+		      	<VotingBtn />
+		      	</div>
+
 		      	</ReactModal>
 
 		      </td>
