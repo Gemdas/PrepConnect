@@ -66,9 +66,9 @@ export default withAuth(class RegistrationForm extends React.Component{
         'Content-Type': 'application/json',
       },
       body: "{}"
-    }).then(data => {
+    }).then(data => data.json())
+    .then( data=>{
       const results = this.state;
-      alert(data);
       results["userId"] = data._id;
 
       fetch('/apiokta', { 
