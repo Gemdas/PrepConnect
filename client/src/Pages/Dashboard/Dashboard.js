@@ -53,56 +53,74 @@ export default withAuth(class Dashboard extends React.Component {
 		if(!this.state.user) return null;
 		if (this.state.authenticated === null) return null;
 		const authNav = this.state.authenticated;
+		let shownNavbar;
+		if (this.state.user.recruiter){
+			shownNavbar=(
+				<ul className="nav">
+					<li>
+						<Link to="/">
+							<p className="welcome">Welcome</p>
+							<p className="welcome">{this.state.user.name}</p>
+					    </Link>
+					</li>
+					<li>
+					    <Link to="/post">
+					        <i className="pe-7s-plus"></i>
+					        <p>Post a Job</p>
+					    </Link>
+					</li>
+					<li>
+					    <Link to="/rec_connections">
+					        <i className="pe-7s-share"></i>
+					        <p>Connections</p>
+					    </Link>
+					</li>
+					<li>
+					    <Link to="/postings">
+					        <i className="pe-7s-copy-file"></i>
+					        <p>Current Postings</p>
+					    </Link>
+					</li>
+				</ul>
+			);
+		}
+		else{
+			shownNavbar=(
+				<ul className="nav">
+					<li>
+						<Link to="/">
+							<p className="welcome">Welcome</p>
+							<p className="welcome">{this.state.user.name}</p>
+					    </Link>
+					</li>
+					<li>
+					    <Link to="/update">
+					        <i className="pe-7s-user"></i>
+					        <p>Profile</p>
+					    </Link>
+					</li>
+					<li>
+					    <Link to="/js_connections">
+					        <i className="pe-7s-share"></i>
+					        <p>Connections*</p>
+					    </Link>
+					</li>
+					<li>
+					    <Link to="/prep">
+					        <i className="pe-7s-display2"></i>
+					        <p>Prep</p>
+					    </Link>
+					</li>
+				</ul>
+			);
+		}
 		return (
 			<div className="Dashboard">
 	        	<div className="wrapper">
         			<div className="sidebar" data-color="blue" data-image="http://images.all-free-download.com/images/graphiclarge/seamless_network_background_312309.jpg">
 				    	<div className="sidebar-wrapper">
 				            <HashRouter>
-					            <ul className="nav">
-					                <li>
-					                	<Link to="/">
-											<p className="welcome">Welcome</p>
-											<p className="welcome">{this.state.user.name}</p>
-				                		</Link>
-					                </li>
-					                <li>
-					                    <Link to="/update">
-					                        <i className="pe-7s-user"></i>
-					                        <p>Profile</p>
-					                    </Link>
-					                </li>
-					                <li>
-					                    <Link to="/post">
-					                        <i className="pe-7s-plus"></i>
-					                        <p>Post a Job</p>
-					                    </Link>
-					                </li>
-					                <li>
-					                    <Link to="/js_connections">
-					                        <i className="pe-7s-share"></i>
-					                        <p>Connections (JS)</p>
-					                    </Link>
-					                </li>
-					                <li>
-					                    <Link to="/rec_connections">
-					                        <i className="pe-7s-share"></i>
-					                        <p>Connections (Rec)</p>
-					                    </Link>
-					                </li>
-					                <li>
-					                    <Link to="/prep">
-					                        <i className="pe-7s-display2"></i>
-					                        <p>Prep</p>
-					                    </Link>
-					                </li>
-					                <li>
-					                    <Link to="/postings">
-					                        <i className="pe-7s-copy-file"></i>
-					                        <p>Current Postings</p>
-					                    </Link>
-					                </li>
-					            </ul>
+					            {shownNavbar}
 				            </HashRouter>
 				    	</div>
     				</div>
