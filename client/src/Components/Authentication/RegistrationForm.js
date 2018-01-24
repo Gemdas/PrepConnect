@@ -53,7 +53,7 @@ export default withAuth(class RegistrationForm extends React.Component{
   }
 
   handleRecruiterChange(e) {
-    this.setState({recruiter: e.target.value})
+    this.setState({recruiter: !this.state.recruiter});
   }
 
   handleSubmit(e){
@@ -129,7 +129,7 @@ export default withAuth(class RegistrationForm extends React.Component{
                   onChange={this.handlePasswordChange} />
                 </div>
                 <div className="form-check recruiterCheck">
-                  <input className="form-check-input" type="checkbox" value={this.state.recruiter} id="recruiter" onChange={this.handleRecruiterChange}/>
+                  <input className="form-check-input" type="checkbox" id="recruiter" value={this.state.recruiter} onChange={this.handleRecruiterChange}/>
                   <label className="form-check-label" htmlFor="recruiter">
                     Recruiter
                   </label>
