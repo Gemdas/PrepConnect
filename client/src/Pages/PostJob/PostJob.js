@@ -1,6 +1,7 @@
 // ADD QUESTION OPTION FOR RECRUITERS
 
 import React, { Component } from 'react';
+import { withAuth } from '@okta/okta-react';
 import Radio from "../../Components/Slider";
 import SubmitBtn from "../../Components/SubmitBtn";
 import Autosuggest from "../../Components/Autosuggest";
@@ -14,33 +15,63 @@ import "./PostJob.css";
 // onClick for validate button, opens up modal with ValidateQuestion component
 // Have recruiter define their minimum % compatibility
 
-class PostJob extends Component {
+export default withAuth(class PostJob extends Component {
+	constructor(props){
+		super(props);
 
-	state = {
-		skills: {
-			html: 0,
-			css: 0,
-			javascript: 0, 
-			jquery: 0, 
-			mysql: 0,
-			mongodb: 0,
-			react: 0
-		},
-		skillsq: {
-			"html-q": "",
-			"css-q": "",
-			"javascript-q": "",
-			"jquery-q": "",
-			"mysql-q":  "",
-			"mongod-q": "",
-			"react-q": ""
-		},
-		jobTitle: "",
-		companyName: "",
-		companyUrl: "",
-		salary: "",
-		compatibilityExpectation: 0
-	};
+		this.state = {
+				skills: {
+					html: 0,
+					css: 0,
+					javascript: 0, 
+					jquery: 0, 
+					mysql: 0,
+					mongodb: 0,
+					react: 0
+				},
+				skillsq: {
+					"html-q": "",
+					"css-q": "",
+					"javascript-q": "",
+					"jquery-q": "",
+					"mysql-q":  "",
+					"mongod-q": "",
+					"react-q": ""
+				},
+				jobTitle: "",
+				companyName: "",
+				companyUrl: "",
+				salary: "",
+				compatibilityExpectation: 0,
+				authenticated: null,
+				user: null
+			};
+			this.checkAuthentication = this.checkAuthentication.bind(this);
+				this.getCurrentUser = this.getCurrentUser.bind(this);
+				this.checkAuthentication();
+	}
+
+	  async getCurrentUser(){
+		this.props.auth.getUser()
+		  .then(user => this.setState({user}));
+	  }
+	
+	  async checkAuthentication() {
+		const authenticated = await this.props.auth.isAuthenticated();
+		if (authenticated !== this.state.authenticated) {
+		  this.setState({ authenticated });
+		}
+	  }
+
+	  componentDidMount(){
+		this.getCurrentUser();
+	  }
+	
+	  componentDidUpdate() {
+		this.checkAuthentication();
+	  }
+
+
 	// handles skills object
 	handleInputChange = event => {
 		const { value, name } = event.target;
@@ -97,16 +128,17 @@ class PostJob extends Component {
 			companyUrl: this.state.companyUrl,
 			salary: this.state.salary,
 			compatibilityExpectation: this.state.compatibilityExpectation,
+			user:this.state.user,
 			codeRequirement,
 			questions
 		}
-
-
 		console.log(data);
 	}
 
 	render () {
-		
+		if(!this.state.user) return null;
+		if (this.state.authenticated === null) return null;
+		const authNav = this.state.authenticated;
 		return (
 			<div className="UpdateAccount content-wrap">
 				<div className="col-sm-12">
@@ -216,6 +248,4 @@ class PostJob extends Component {
 			</div>
 		)
 	}
-}
-
-export default PostJob;
+})
