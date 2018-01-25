@@ -1,5 +1,9 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .wrapper {
-  background-color: #2172c5;
+  background-color: #fcfcfc;
   height: 1000px;
 }
 

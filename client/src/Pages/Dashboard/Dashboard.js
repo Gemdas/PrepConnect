@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, HashRouter, Switch, Link } from "react-router-dom";
 import { withAuth } from '@okta/okta-react';
-import './dashboard.css';
 import WelcomeScreen from "../../Components/WelcomeScreen";
 import UpdateAccount from "../UpdateAccount";
 import ConnectionsJobSeeker from "../ConnectionsJobSeeker";
@@ -10,8 +9,7 @@ import Prep from "../Prep";
 import ConnectionsRecruiter from "../ConnectionsRecruiter";
 import CurrentPostings from "../CurrentPostings";
 import SingleQuestion from "../SingleQuestion";
-
-
+import './dashboard.css';
 
 // This page holds the Dashboard Shell Component
 // remove blue from bottom
@@ -117,7 +115,7 @@ export default withAuth(class Dashboard extends React.Component {
 		return (
 			<div className="Dashboard">
 	        	<div className="wrapper">
-        			<div className="sidebar" data-color="blue" data-image="http://images.all-free-download.com/images/graphiclarge/seamless_network_background_312309.jpg">
+        			<div className="sidebar" data-color="blue" data-image="network.png">
 				    	<div className="sidebar-wrapper">
 				            <HashRouter>
 					            {shownNavbar}
