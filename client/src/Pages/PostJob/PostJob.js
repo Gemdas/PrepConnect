@@ -7,6 +7,7 @@ import SubmitBtn from "../../Components/SubmitBtn";
 import Autosuggest from "../../Components/Autosuggest";
 import ValidateQuestion from "../../Components/ValidateQuestion";
 import "./PostJob.css";
+import axios from 'axios';
 
 // This page holds the Update Account Page
 
@@ -53,7 +54,12 @@ export default withAuth(class PostJob extends Component {
 
 	  async getCurrentUser(){
 		this.props.auth.getUser()
-		  .then(user => this.setState({user}));
+		.then(user => {this.setState({user})
+			axios.get("api/user/" + user.picture).then((response)=>{
+				console.log(response.data)
+			});
+
+		})
 	  }
 	
 	  async checkAuthentication() {
@@ -103,12 +109,12 @@ export default withAuth(class PostJob extends Component {
 	// handles submit button
 	handleSubmit = event => {
 		event.preventDefault();
-		const codeRequirement = [];
+		const codeRequirements = [];
 		const questions = [];
 
 
 		for (let key in this.state.skills){
-			codeRequirement.push({
+			codeRequirements.push({
 				language: key,
 				competency: this.state.skills[key]
 			})
@@ -128,11 +134,13 @@ export default withAuth(class PostJob extends Component {
 			companyUrl: this.state.companyUrl,
 			salary: this.state.salary,
 			compatibilityExpectation: this.state.compatibilityExpectation,
-			user:this.state.user,
-			codeRequirement,
+			recruiterId:this.state.user.picture,
+			codeRequirements,
 			questions
 		}
-		console.log(data);
+		axios.post("api/posting/", data).then((response)=>{
+            console.log(response.data)
+        });
 	}
 
 	render () {

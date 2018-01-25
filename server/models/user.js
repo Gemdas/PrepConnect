@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const SkillSchema = new Schema({
 	language: String,
-	compentency: Number
+	competency: String
 });
 const UserSchema = new Schema({
 	// firstName: {type: String, required: true},
