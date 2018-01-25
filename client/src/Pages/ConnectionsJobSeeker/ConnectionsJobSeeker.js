@@ -21,6 +21,20 @@
 		this.getCurrentUser = this.getCurrentUser.bind(this);
 		this.checkAuthentication();
  	}
+ 	compareArrays(userArray, postArray){
+ 		let count = 0;
+ 		let difference = 0;
+ 		postArray.forEach((value, index)=>{
+ 			if(parseInt(value.competency)<1){
+ 				return;
+ 			}
+ 			const userValue= parseInt(userArray.find(element=>{return element.language===value.language}).competency)
+ 			difference+=(parseInt(value.competency)-userValue)/parseInt(value.competency)*100
+ 			count++;
+ 		})
+ 		return parseInt(100-difference/count);
+ 	}
+
 
  	  async getCurrentUser(){
 		this.props.auth.getUser()

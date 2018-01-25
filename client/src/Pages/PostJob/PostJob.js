@@ -55,10 +55,6 @@ export default withAuth(class PostJob extends Component {
 	  async getCurrentUser(){
 		this.props.auth.getUser()
 		.then(user => {this.setState({user})
-			axios.get("api/user/" + user.picture).then((response)=>{
-				console.log(response.data)
-			});
-
 		})
 	  }
 	
