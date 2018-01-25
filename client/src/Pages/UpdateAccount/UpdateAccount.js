@@ -40,9 +40,14 @@ constructor(props){
 
 	async getCurrentUser(){
 		this.props.auth.getUser()
-		  .then(user => {this.setState({user})
-		axios.get("api/user/" + user.picture).then((response)=>{
-            console.log(response.data)
+			.then(user => {
+				axios.get("api/user/" + user.picture).then((response)=>{
+            	this.setState({
+            		user,
+            		github: response.github||this.state.github,
+            		portfolio: response.porfolio||this.state.porfolio,
+            		linkedin: response.linkedin||this.state.linkedin
+            	})
         });
 		 
 	  })
