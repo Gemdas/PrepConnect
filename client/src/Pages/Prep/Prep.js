@@ -1,4 +1,5 @@
  import React, { Component } from 'react';
+ import { withAuth } from '@okta/okta-react';
  import "./Prep.css";
  import PrepQuestion from "../../Components/PrepQuestion";
  import Application from "../Application";
@@ -7,8 +8,44 @@
  // Props needed: Table Headers for Recruiters and Job Seekers
 
 
- class Prep extends Component {
+ export default withAuth(class Prep extends Component {
+ 	constructor(props){
+		super(props)
+
+		this.state = {
+			input: '',
+			authenticated: null,
+			user: null
+		}
+		this.checkAuthentication = this.checkAuthentication.bind(this);
+		this.getCurrentUser = this.getCurrentUser.bind(this);
+		this.checkAuthentication();
+	};
+
+	  async getCurrentUser(){
+		this.props.auth.getUser()
+		  .then(user => this.setState({user}));
+	  }
+	
+	  async checkAuthentication() {
+		const authenticated = await this.props.auth.isAuthenticated();
+		if (authenticated !== this.state.authenticated) {
+		  this.setState({ authenticated });
+		}
+	  }
+
+	  componentDidMount(){
+		this.getCurrentUser();
+	  }
+	
+	  componentDidUpdate() {
+		this.checkAuthentication();
+	  }
+	  
  	render () {
+ 		if(!this.state.user) return null;
+		if (this.state.authenticated === null) return null;
+		const authNav = this.state.authenticated;
  		return (
  		<div>
  			<div className="row">
@@ -50,6 +87,4 @@
 		</div>
  		)
  	}
- }
-
- export default Prep;
+ })

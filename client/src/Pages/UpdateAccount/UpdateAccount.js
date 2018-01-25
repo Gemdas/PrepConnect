@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withAuth } from '@okta/okta-react';
 import Radio from "../../Components/Slider";
 import SubmitBtn from "../../Components/SubmitBtn";
 import "./UpdateAccount.css";
@@ -8,9 +9,12 @@ import "./UpdateAccount.css";
 // save button to update their information and skills in the db 
 
 
-class UpdateAccount extends Component {
+export default withAuth(class UpdateAccount extends Component {
 
-	state = {
+constructor(props){
+	super(props);
+
+	this.state = {
 		skills: {
 			html: 0,
 			css: 0,
@@ -22,9 +26,36 @@ class UpdateAccount extends Component {
 		},
 		github: "",
 		linkedin: "",
-		portfolio: ""
+		portfolio: "",
+		authenticated: null,
+		user: null
 
 	};
+	this.checkAuthentication = this.checkAuthentication.bind(this);
+		this.getCurrentUser = this.getCurrentUser.bind(this);
+		this.checkAuthentication();
+}
+	
+
+	async getCurrentUser(){
+		this.props.auth.getUser()
+		  .then(user => this.setState({user}));
+	  }
+	
+	  async checkAuthentication() {
+		const authenticated = await this.props.auth.isAuthenticated();
+		if (authenticated !== this.state.authenticated) {
+		  this.setState({ authenticated });
+		}
+	  }
+
+	  componentDidMount(){
+		this.getCurrentUser();
+	  }
+	
+	  componentDidUpdate() {
+		this.checkAuthentication();
+	  }
 
 	handleInputChange = event => {
 		const { value, name } = event.target;
@@ -56,12 +87,16 @@ class UpdateAccount extends Component {
 			github: this.state.github,
 			linkedin: this.state.linkedin, 
 			portfolio: this.state.portfolio,
+			user: this.state.user,
 			codeAbility
 		}
 		console.log(data)
 	}
 	
 	render () {
+		if(!this.state.user) return null;
+		if (this.state.authenticated === null) return null;
+		const authNav = this.state.authenticated;
 		return (
 			<div className="UpdateAccount content-wrap">
 				<div className="col-sm-12">
@@ -157,6 +192,6 @@ class UpdateAccount extends Component {
 			</div>
 		)
 	}
-}
+})
 
-export default UpdateAccount;
+

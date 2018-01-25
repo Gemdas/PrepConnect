@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withAuth } from '@okta/okta-react';
 import { JavascriptEditor } from "../../Components/Editor";
 
 
@@ -12,20 +13,39 @@ import { JavascriptEditor } from "../../Components/Editor";
 
 
 
-class Application extends Component {
+export default withAuth(class Application extends Component {
 	constructor(props){
 		super(props)
 
-
+		this.state = {
+			input: '',
+			authenticated: null,
+			user: null
+		}
+		this.checkAuthentication = this.checkAuthentication.bind(this);
+		this.getCurrentUser = this.getCurrentUser.bind(this);
+		this.checkAuthentication();
 	};
 
-	state = {
-		input: ''
-	}
+	  async getCurrentUser(){
+		this.props.auth.getUser()
+		  .then(user => this.setState({user}));
+	  }
+	
+	  async checkAuthentication() {
+		const authenticated = await this.props.auth.isAuthenticated();
+		if (authenticated !== this.state.authenticated) {
+		  this.setState({ authenticated });
+		}
+	  }
 
-	handleSubmit = event => {
-		event.preventDefault();
-	}
+	  componentDidMount(){
+		this.getCurrentUser();
+	  }
+	
+	  componentDidUpdate() {
+		this.checkAuthentication();
+	  }
 
 	handleEditorInput = (editorInput) => {
 		console.log('parent...', editorInput)
@@ -33,9 +53,20 @@ class Application extends Component {
 			input: editorInput
 		})
 	}
+// Still need to grab the editor data on submit
+	handleSubmit = event => {
+		event.preventDefault();
+		const data={
+			user: this.state.user,
+		}
+		console.log(data);
+	}
 
 
 	render () {
+		if(!this.state.user) return null;
+		if (this.state.authenticated === null) return null;
+		const authNav = this.state.authenticated;
 		return (
 			<div>
 				<div className="questionType">
@@ -49,6 +80,5 @@ class Application extends Component {
 			</div>
 		)
 	}
-}
+})
 
-export default Application;
