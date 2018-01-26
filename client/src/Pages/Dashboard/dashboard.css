@@ -1,5 +1,6 @@
 .content-wrapper {
-	background-color: #C6C7C4;
+	background-image: url("../Login/network-img.png");
+	background-size: cover;
 }
 
 .nav-text {

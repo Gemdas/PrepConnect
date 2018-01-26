@@ -1,14 +1,18 @@
 .welcome-wrapper {
-	background: url("./connections.jpg");
-	background-repeat: no-repeat;
-	display: block;
-	background-size: auto 200%;
-	background-size: cover;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 56px;
+	margin-bottom: -5px;
+	text-align: center;
+	font-weight: bold;
+	color: #ffffff;
+	opacity: .80;
+	background-color: #0a2463;
 }
 
 .welcome-head {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 48px;
+	color: #ffffff;
 	text-align: center;
 	font-weight: bold;
 }

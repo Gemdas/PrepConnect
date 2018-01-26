@@ -140,8 +140,8 @@ export default withAuth(class Dashboard extends React.Component {
 				                </div>
 				                <div className="collapse navbar-collapse">
 									<ul className="nav navbar-nav navbar-right auth-nav">
-										<li><a className="nav-text" href="javascript:void(0)" onClick={this.props.auth.logout}>Logout</a></li>
-										<i className="fa fa-sign-out nav-text"></i>
+										<li><a className="nav-text" href="javascript:void(0)" onClick={this.props.auth.logout}>Logout <i className="fa fa-sign-out nav-text"></i></a></li>
+										
 									</ul>
 				                </div>
 				            </div>

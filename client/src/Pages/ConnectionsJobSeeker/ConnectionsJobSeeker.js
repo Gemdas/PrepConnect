@@ -90,7 +90,6 @@
  			<th scope="col">Company</th>
  			<th scope="col">% Matched</th>
  			<th scope="col">Apply</th>
- 			<th scope="col">Decline</th>
 
  			</tr>
  			</thead>

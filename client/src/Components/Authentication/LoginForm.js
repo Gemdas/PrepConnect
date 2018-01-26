@@ -58,15 +58,15 @@ export default withAuth(class LoginForm extends React.Component {
         <div className="card-body row align-items-center">
             <div className="col-sm-6 loginForm">
                 <div className="card-header">
-                    <h1 className="card-title">Welcome to PrepConnect</h1>
-                    <h3 className="card-subtitle mb-2 text-muted">Nail the Interview!</h3>
-                    <h4 className="card-text">Interviewing made easy. Create an account or log in to review actual interview questions, or initiate an interview for a job matching your skill!</h4>              
+                    <h1 className="card-title login-title"><img className="login-logo" src="https://image.ibb.co/jKaSzG/pclogo.png" alt="pclogo" border="0" /></h1>
+                    <h4 className="card-text login-subtitle text-center">Connecting Recruiters with Applicants</h4>              
+                    <h4 className="card-text login-subtitle text-center">Based On Skills, Not Resumes</h4>              
                 </div>
                 <br />
             <form onSubmit={this.handleSubmit}>
                 {errorMessage}
                 <div className="form-element form-group">
-                    <label>Username:</label>
+                    <label className="login-text">Username:</label>
                     <input
                         id="username" type="text"
                         value={this.state.username}
@@ -75,15 +75,20 @@ export default withAuth(class LoginForm extends React.Component {
                 </div>
 
                 <div className="form-element form-group">
-                    <label>Password:</label>
+                    <label className="login-text">Password:</label>
                     <input
                         id="password" type="password"
                         value={this.state.password}
                         className="form-control"
                         onChange={this.handlePasswordChange} />
                 </div>
-                <input className="btn btn-success loginBtn" id="submit" type="submit" value="Login" />
-                <p className="text-center">No account? <a href="/register">Create one.</a></p>
+                <div className="text-center">
+                  <input className="btn loginBtn" id="submit" type="submit" value="Login" />
+                </div>
+                <div>
+                  <p className="text-center">No account? <a href="/register">Create one.</a></p>
+                </div>
+                
             </form>
         </div>
     </div>
