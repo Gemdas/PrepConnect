@@ -3,6 +3,7 @@
  import { RecRow } from "../../Components/Connections";
  import "./connection.css";
  import SubmitBtn from "../../Components/SubmitBtn";
+ import axios from 'axios';
 
  // ajax call to grab matched applications
 
@@ -12,6 +13,7 @@
 
 		this.state = {
 			input: '',
+			submissions:[], 
 			authenticated: null,
 			user: null
 		}
@@ -22,7 +24,14 @@
 
 	  async getCurrentUser(){
 		this.props.auth.getUser()
-		  .then(user => this.setState({user}));
+		  .then(user => {
+ 				axios.get("api/submission?recruiterId="+user.picture).then((response)=>{
+            		console.log(response.data)
+            		this.setState({
+            			user: user,
+            			submissions:response.data})
+        });
+ 			});
 	  }
 	
 	  async checkAuthentication() {
@@ -33,8 +42,9 @@
 	  }
 
 	  componentDidMount(){
-		this.getCurrentUser();
-	  }
+        this.getCurrentUser();
+        
+      }
 	
 	  componentDidUpdate() {
 		this.checkAuthentication();
@@ -53,13 +63,20 @@
 				      <th scope="col">Job Title</th>
 				      <th scope="col">Company</th>
 				      <th scope="col">Action</th>
-				      <th scope="col">% Matched</th>
 				      <th scope="col">Contact</th>
 				      <th scope="col">Decline</th>
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <RecRow jobTitle="title" company="company" matched={95} />
+				  	{this.state.submissions.map(submission=>{
+				  		return(<RecRow jobTitle={submission.jobTitle}
+				  			name={submission.applicant}
+				  			company={submission.company}
+				  			responses={submission.responses} 
+				  			email={submission.email}
+				  			id={submission._id}
+				  			/>)
+				  	})}
 				  </tbody>
 				</table>
 			</div>

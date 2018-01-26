@@ -8,7 +8,8 @@ const QuestionSchema = new Schema({
 
 const SubmissionSchema = new Schema({
 	recruiterId : {type: Schema.Types.ObjectId, required: true},
-	postingId : {type: Schema.Types.ObjectId, required: true},
+	jobTitle : {type: String, required: true},
+	company: {type: String, required: true},
 	applicant: {type: String, required: true},
 	email: {type: String, required: true},
 	github: String,
