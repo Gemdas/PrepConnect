@@ -1,7 +1,10 @@
  import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+import axios from 'axios';
+
 
 // Props.Action should show a modal displaying jobSeeker answers, and links to their github, linkedin, portfolio
+
 
 export class RecRow extends React.Component {
 
@@ -26,11 +29,23 @@ export class RecRow extends React.Component {
 		this.setState({ showModal: false });
 	};
 
+	handleDecline = () =>{
+		const data = {
+			jobTitle : this.props.jobTitle,
+			email : this.props.email
+		}
+		axios.post("email/", data).then((response)=>{
+ 			axios.delete("api/submission/"+this.props.id).then((response)=>{});
+ 		});
+ 		
+	}
+
+
 	render() {
 		const modalStyles = {overlay: {zIndex: 10}};
 		return(
 				<tr>
-			      <th scope="row">props.username</th>
+			      <th scope="row">{this.props.name}</th>
 			      <td>{this.props.jobTitle}</td>
 			      <td>{this.props.company}</td>
 			      <td>
@@ -43,14 +58,20 @@ export class RecRow extends React.Component {
 				            shouldCloseOnOverlayClick={false}
 				            style={ modalStyles }
 				     >
-				      	
+				     {this.props.responses.map(response=>{
+				     	return(
+				     		<div>
+				     		<div className="question"><h3>Question:</h3>{response.question} </div>
+				     		<div className="answer"><h4>Answer:</h4>{response.answer} </div>
+				     		</div>
+				     		)
+				     })} 	
 			      	<button onClick={this.HandleCloseModal}>Exit Application</button>
 			      	</ReactModal>
 
 			      </td>
-			      <td>{this.props.matched}</td>
-			      <td><button className="btn btn-success tableBtn" hfref="mailto:props.userEmail">Contact</button></td>
-			      <td><button className="btn btn-danger tableBtn">Decline</button></td>
+			      <td><a href={"mailto:"+this.props.email}><button className="btn btn-success tableBtn">Contact</button></a></td>
+			      <td><button className="btn btn-danger tableBtn" onClick={this.handleDecline}>Decline</button></td>
 			    </tr>
 			)
 	}

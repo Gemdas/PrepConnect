@@ -49,6 +49,7 @@ export default withAuth(class Application extends Component {
 
 	handleEditorInput = (editorInput) => {
 		console.log('parent...', editorInput)
+		this.props.handleEditor(editorInput, this.props.index);
 		this.setState({
 			input: editorInput
 		})
