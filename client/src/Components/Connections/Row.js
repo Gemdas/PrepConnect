@@ -27,6 +27,13 @@ export class JsRow extends React.Component {
 		this.setState({ showModal: false });
 	};
 	
+	handleSubmit = event => {
+		event.preventDefault();
+		const data={
+			user: this.state.user,
+		}
+		console.log(data);
+	}
 
 	render () {
 		const modalStyles = {overlay: {zIndex: 10}};
@@ -34,7 +41,7 @@ export class JsRow extends React.Component {
 				<tr>
 			      <td scope="row">{this.props.jobTitle}</td>
 			      <td>{this.props.salary}</td>
-			      <td><a>{this.props.company}</a></td>
+			      <td><a href={this.props.companyUrl}>{this.props.company}</a></td>
 			      <td>{this.props.matched}</td>
 			      <td>
 			     
@@ -47,8 +54,13 @@ export class JsRow extends React.Component {
 				            shouldCloseOnOverlayClick={false}
 				            style={ modalStyles }
 				      	>
+				      	{this.props.question.map(question=>{
+					      	return (<Application skills={question.type} skillsq={question.question} />);
+
+				      	})}
 				      	<Application skills="JavaScript" skillsq="FizzBuzz" />
-				      	<button onClick={this.HandleCloseModal}>Exit Application</button>
+				      	<button type="submit" className="btn btn-sucess submitBtn" onClick={this.handleSubmit}>Submit Application</button>
+				      	<button className="submitBtn"onClick={this.HandleCloseModal}>Exit Application</button>
 				      	
 				      	</ReactModal>
 				      	
