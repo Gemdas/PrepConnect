@@ -1,4 +1,5 @@
  import React, { Component } from 'react';
+ import axios from 'axios';
  import { withAuth } from '@okta/okta-react';
  import { JsRow } from "../../Components/Connections";
  import "./connection.css";
@@ -9,19 +10,7 @@
  // ajax call to grab matched job postings
 
  // application (either begin or review)
-
- export default withAuth(class ConnectionsJobSeeker extends Component {
- 	constructor(props){
- 		super(props);
- 		this.state = {
- 			authenticated: null,
- 			user: null
- 		};
- 		this.checkAuthentication = this.checkAuthentication.bind(this);
-		this.getCurrentUser = this.getCurrentUser.bind(this);
-		this.checkAuthentication();
- 	}
- 	compareArrays(userArray, postArray){
+ const compareArrays= (userArray, postArray)=>{
  		let count = 0;
  		let difference = 0;
  		postArray.forEach((value, index)=>{
@@ -35,10 +24,34 @@
  		return parseInt(100-difference/count);
  	}
 
+ export default withAuth(class ConnectionsJobSeeker extends Component {
+ 	constructor(props){
+ 		super(props);
+ 		this.state = {
+ 			authenticated: null,
+ 			user: null
+ 		};
+ 		this.checkAuthentication = this.checkAuthentication.bind(this);
+		this.getCurrentUser = this.getCurrentUser.bind(this);
+		this.checkAuthentication();
+ 	}
+ 	
+
 
  	  async getCurrentUser(){
 		this.props.auth.getUser()
-		  .then(user => this.setState({user}));
+		  .then(user => {
+		  	axios.get("api/user/" + user.picture).then((response)=>{
+		  		console.log(response);
+            	this.setState({
+            		user,
+            		github: response.data.github,
+            		portfolio: response.data.porfolio,
+            		linkedin: response.data.linkedin,
+            		codeAbility: response.data.codeAbility
+            	})
+        	});
+		  });
 	  }
 	
 	  async checkAuthentication() {
@@ -50,6 +63,10 @@
 
 	  componentDidMount(){
 		this.getCurrentUser();
+		axios.get("api/posting/").then((response)=>{
+            console.log(response.data)
+            this.setState({postings:response.data})
+        });
 	  }
 	
 	  componentDidUpdate() {
@@ -59,6 +76,7 @@
 	  
 
  	render () {
+ 		console.log(this.state);
  		if(!this.state.user) return null;
 		if (this.state.authenticated === null) return null;
 		const authNav = this.state.authenticated;
@@ -77,7 +95,13 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <JsRow jobTitle="title" salary="$$" company="company" matched={100} />
+				  	{this.state.postings.map((posting)=>{
+				  		const score=compareArrays(this.state.codeAbility, posting.codeRequirements)
+				  		if(posting.compatibilityExpectation>score){
+				  			return null;
+				  		}
+				  		return(<JsRow jobTitle={posting.jobTitle} salary={posting.salary} question={posting.questions} company={posting.companyName} matched={score} companyUrl={posting.companyUrl}/>)
+				  	})}
 				  </tbody>
 				</table>
 			</div>

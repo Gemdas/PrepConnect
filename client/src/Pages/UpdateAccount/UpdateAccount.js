@@ -100,14 +100,16 @@ constructor(props){
 			portfolio: this.state.portfolio,
 			codeAbility
 		}
+		console.log(data, this.state.user.picture)
+
 		axios.put("api/user/" + this.state.user.picture, data).then((response)=>{
             console.log(response.data)
         });
 
-		console.log(data)
 	}
 	
 	render () {
+		console.log(this.state.user, this.state.authenicated);
 		if(!this.state.user) return null;
 		if (this.state.authenticated === null) return null;
 		const authNav = this.state.authenticated;
