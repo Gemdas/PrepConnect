@@ -3,6 +3,7 @@ import { withAuth } from '@okta/okta-react';
 import Radio from "../../Components/Slider";
 import SubmitBtn from "../../Components/SubmitBtn";
 import "./UpdateAccount.css";
+import axios from 'axios';
 
 // This page holds the Update Account Page
 
@@ -39,8 +40,18 @@ constructor(props){
 
 	async getCurrentUser(){
 		this.props.auth.getUser()
-		  .then(user => this.setState({user}));
-	  }
+			.then(user => {
+				axios.get("api/user/" + user.picture).then((response)=>{
+            	this.setState({
+            		user,
+            		github: response.github||this.state.github,
+            		portfolio: response.porfolio||this.state.porfolio,
+            		linkedin: response.linkedin||this.state.linkedin
+            	})
+        });
+		 
+	  })
+	}
 	
 	  async checkAuthentication() {
 		const authenticated = await this.props.auth.isAuthenticated();
@@ -59,9 +70,8 @@ constructor(props){
 
 	handleInputChange = event => {
 		const { value, name } = event.target;
-		
 		let tempObj=this.state;
-		tempObj[name]=value;
+		tempObj.skills[name]=value;
 
 		this.setState(tempObj);
 	};
@@ -80,20 +90,26 @@ constructor(props){
 		for (let key in this.state.skills){
 			codeAbility.push({
 				language: key,
-				competency: this.state[key]
+				competency: this.state.skills[key]
 			})
+			console.log(this.state.skills)
 		}
 		const data={
 			github: this.state.github,
 			linkedin: this.state.linkedin, 
 			portfolio: this.state.portfolio,
-			user: this.state.user,
 			codeAbility
 		}
-		console.log(data)
+		console.log(data, this.state.user.picture)
+
+		axios.put("api/user/" + this.state.user.picture, data).then((response)=>{
+            console.log(response.data)
+        });
+
 	}
 	
 	render () {
+		console.log(this.state.user, this.state.authenicated);
 		if(!this.state.user) return null;
 		if (this.state.authenticated === null) return null;
 		const authNav = this.state.authenticated;
@@ -104,15 +120,15 @@ constructor(props){
 			  			<form>
 			  				<div className="form-group">
 							    <label htmlFor="github">GitHub Link</label>
-							    <input type="url" className="form-control" onChange={this.handleContactChange} id="github" aria-describedby="emailHelp" placeholder="https://github.com/" />
+							    <input type="url" className="form-control" onChange={this.handleContactChange} id="github" aria-describedby="emailHelp" placeholder="https://github.com/" value={this.state.github} />
 							</div>
 							<div className="form-group">
 							    <label htmlFor="linkedin">LinkedIn</label>
-							    <input type="url" className="form-control" onChange={this.handleContactChange} id="linkedin" aria-describedby="emailHelp" placeholder="https://www.linkedin.com/in/" />
+							    <input type="url" className="form-control" onChange={this.handleContactChange} id="linkedin" aria-describedby="emailHelp" placeholder="https://www.linkedin.com/in/" value={this.state.linkedin} />
 							</div>
 							<div className="form-group">
 							    <label htmlFor="porfolio">Portfolio</label>
-							    <input type="url" className="form-control" onChange={this.handleContactChange} id="portfolio" aria-describedby="emailHelp" placeholder="Enter Portfolio" />
+							    <input type="url" className="form-control" onChange={this.handleContactChange} id="portfolio" aria-describedby="emailHelp" placeholder="Enter Portfolio" value={this.state.portfolio} />
 							</div>
 			  			</form>
 				  		<div className="card-body text-center">

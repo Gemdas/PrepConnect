@@ -52,7 +52,7 @@ export default withAuth(class Dashboard extends React.Component {
 		if (this.state.authenticated === null) return null;
 		const authNav = this.state.authenticated;
 		let shownNavbar;
-		if (this.state.user.recruiter){
+		if (this.state.user.website==="true"){
 			shownNavbar=(
 				<ul className="nav">
 					<li>

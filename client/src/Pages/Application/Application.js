@@ -49,6 +49,7 @@ export default withAuth(class Application extends Component {
 
 	handleEditorInput = (editorInput) => {
 		console.log('parent...', editorInput)
+		this.props.handleEditor(editorInput, this.props.index);
 		this.setState({
 			input: editorInput
 		})
@@ -76,7 +77,7 @@ export default withAuth(class Application extends Component {
 					<h3>{this.props.skillsq}</h3>
 				</div>
 					<JavascriptEditor value={this.state.input} handleEditorInput={this.handleEditorInput} />
-				<button type="submit" className="btn btn-sucess submitBtn" onClick={this.handleSubmit}>Submit Application</button>
+				
 			</div>
 		)
 	}
