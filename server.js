@@ -5,22 +5,28 @@ const routes = require("./server/routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 var cookieParser = require('cookie-parser');
+const path = require("path");
+require("dotenv").config()
+const secret = process.env.SECRET || "secret message goes here"  
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser()); 
-//app.use(express.static("client/build"));
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(routes);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist",
+  process.env.mongolab-dimensional-46374 || "mongodb://localhost/reactreadinglist",
   {
     useMongoClient: true
   }
 );
 console.log("go take a break Brennan")
+app.get("*", (req, res) => {  
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
