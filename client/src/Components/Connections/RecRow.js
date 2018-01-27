@@ -1,6 +1,7 @@
  import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import axios from 'axios';
+import "./Row.css";
 
 
 // Props.Action should show a modal displaying jobSeeker answers, and links to their github, linkedin, portfolio
@@ -49,7 +50,7 @@ export class RecRow extends React.Component {
 			      <td>{this.props.jobTitle}</td>
 			      <td>{this.props.company}</td>
 			      <td>
-			      	<button onClick={this.handleOpenModal} className="btn btn-primary tableBtn">View Application</button>
+			      	<button onClick={this.handleOpenModal} className="btn tableBtn">View Application</button>
 
 			      	<ReactModal
 				      		isOpen={this.state.showModal}
@@ -70,8 +71,8 @@ export class RecRow extends React.Component {
 			      	</ReactModal>
 
 			      </td>
-			      <td><a href={"mailto:"+this.props.email}><button className="btn btn-success tableBtn">Contact</button></a></td>
-			      <td><button className="btn btn-danger tableBtn" onClick={this.handleDecline}>Decline</button></td>
+			      <td><a href={"mailto:"+this.props.email}><button className="btn tableBtn">Contact</button></a></td>
+			      <td><button className="btn btn-red tableBtn" onClick={this.handleDecline}>Decline</button></td>
 			    </tr>
 			)
 	}

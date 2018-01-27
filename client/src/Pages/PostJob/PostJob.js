@@ -6,6 +6,7 @@ import Radio from "../../Components/Slider";
 import SubmitBtn from "../../Components/SubmitBtn";
 import Autosuggest from "../../Components/Autosuggest";
 import ValidateQuestion from "../../Components/ValidateQuestion";
+import Alert from 'react-s-alert';
 import "./PostJob.css";
 import axios from 'axios';
 
@@ -105,6 +106,11 @@ export default withAuth(class PostJob extends Component {
 	// handles submit button
 	handleSubmit = event => {
 		event.preventDefault();
+		Alert.success('Saved', {
+            position: 'bottom',
+            effect: 'slide',
+            timeout: 3000
+        });
 		const codeRequirements = [];
 		const questions = [];
 

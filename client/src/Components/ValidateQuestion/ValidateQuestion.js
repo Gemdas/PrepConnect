@@ -8,8 +8,8 @@ const ValidateQuestion = props => (
 	<div>
 			
   			<div className="form-group">
-    			<label htmlFor="validationQuestion">Enter your Skill Level, Language and Question below</label>
-    			<textarea className="form-control form-control-lg" type="text" onChange={props.question} id={props.id} rows="3" placeholder="Write a function for FizzBuzz"></textarea>
+    			<label htmlFor="validationQuestion">Enter a custom questoin to verify applicant's skill level</label>
+    			<textarea className="form-control form-control-md formBox" type="text" onChange={props.question} id={props.id} rows="3"></textarea>
   			</div>
   			
 		

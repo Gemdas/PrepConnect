@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from '@okta/okta-react';
 import Radio from "../../Components/Slider";
 import SubmitBtn from "../../Components/SubmitBtn";
+import Alert from 'react-s-alert';
 import "./UpdateAccount.css";
 import axios from 'axios';
 
@@ -86,6 +87,11 @@ constructor(props){
 
 	handleSubmit = event => {
 		event.preventDefault();
+		Alert.success('Saved', {
+            position: 'bottom',
+            effect: 'slide',
+            timeout: 3000
+        });
 		const codeAbility = [];
 		for (let key in this.state.skills){
 			codeAbility.push({
@@ -198,7 +204,7 @@ constructor(props){
 									<label className="radio-inline"><input type="radio" name="react" value={3} onClick={this.handleInputChange.bind(this)} />Advanced</label>
 								</div>
 							</form>
-							<button type="submit" className="btn btn-sucess submitBtn" onClick={this.handleSubmit}>Update Account</button>
+							<button type="submit" className="btn btn-sucess submitBtn" onClick={this.handleSubmit} >Update Account</button>
 				  		</div>
 
 				  		

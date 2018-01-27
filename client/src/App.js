@@ -19,7 +19,9 @@ export default App; */
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { SecureRoute, ImplicitCallback } from '@okta/okta-react';
-
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import Navigation from './Components/Shared/Navigation';
 import HomePage from './Components/Home/HomePage';
 import RegistrationForm from './Components/Authentication/RegistrationForm';
@@ -41,6 +43,7 @@ export default class App extends Component {
           <Route path="/register" component={RegistrationForm} />
           <SecureRoute path="/profile" component={Dashboard} />
         </main>
+        <Alert />
       </div>
     );
   }

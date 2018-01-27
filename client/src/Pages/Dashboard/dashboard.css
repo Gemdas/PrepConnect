@@ -1,5 +1,6 @@
 .content-wrapper {
-	background-color: #C6C7C4;
+	background-image: url("../Login/network-img.png");
+	background-size: cover;
 }
 
 .nav-text {
@@ -18,6 +19,15 @@
 
 .sidebar-wrapper {
 	top: 65px;
+}
+
+.sidebar {
+	background-image: url("network.png");
+	background-size: cover;
+}
+
+.main-panel {
+	background-color: #C6C7C4;
 }
 
 .welcome {
