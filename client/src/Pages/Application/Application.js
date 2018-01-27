@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from '@okta/okta-react';
 import { JavascriptEditor } from "../../Components/Editor";
 import { Timer } from "../../Components/Timer";
+import Alert from 'react-s-alert';
 
 
 // questions from recruiter with editors for each
@@ -58,6 +59,11 @@ export default withAuth(class Application extends Component {
 // Still need to grab the editor data on submit
 	handleSubmit = event => {
 		event.preventDefault();
+		Alert.success('Submitted', {
+			position: 'bottom',
+			effect: 'slide',
+			timeout: 3000
+	});
 		const data={
 			user: this.state.user,
 		}
