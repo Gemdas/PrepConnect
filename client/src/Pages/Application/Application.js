@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '@okta/okta-react';
 import { JavascriptEditor } from "../../Components/Editor";
+import { Timer } from "../../Components/Timer";
 
 
 // questions from recruiter with editors for each
@@ -70,6 +71,9 @@ export default withAuth(class Application extends Component {
 		const authNav = this.state.authenticated;
 		return (
 			<div>
+				<div>
+					<Timer />
+				</div>
 				<div className="questionType">
 					<h2>{this.props.skills}</h2>
 				</div>

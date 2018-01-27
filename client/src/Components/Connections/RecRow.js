@@ -50,7 +50,7 @@ export class RecRow extends React.Component {
 			      <td>{this.props.jobTitle}</td>
 			      <td>{this.props.company}</td>
 			      <td>
-			      	<button onClick={this.handleOpenModal} className="btn tableBtn">View Application</button>
+			      	<button onClick={this.handleOpenModal} className="btn tableBtn">Review</button>
 
 			      	<ReactModal
 				      		isOpen={this.state.showModal}
