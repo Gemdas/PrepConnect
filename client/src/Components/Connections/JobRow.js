@@ -1,6 +1,7 @@
  import React from 'react';
  import ReactModal from 'react-modal';
  import VotingBtn from '../VotingBtn';
+ import "./Row.css";
 
  export class JobRow extends React.Component {
  	constructor (props) {
@@ -32,7 +33,7 @@
 		      <td>{this.props.company}</td>
 		      <td>{this.props.allMatches}</td>
 		      <td>
-		      	<button onClick={this.handleOpenModal} className="btn btn-primary tableBtn">Action</button>
+		      	<button onClick={this.handleOpenModal} className="btn tableBtn">Action</button>
 
 		      	<ReactModal
 		      		isOpen={this.state.showModal}
