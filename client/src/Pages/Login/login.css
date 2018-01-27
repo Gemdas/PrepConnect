@@ -79,6 +79,30 @@
   vertical-align: middle;
 }
 
+.declineBtn {
+  background-color: #FF7E67 !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cdf3dd", endColorstr="#FF7E67");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#cdf3dd), to(#FF7E67));
+  background-image: -moz-linear-gradient(top, #cdf3dd, #FF7E67);
+  background-image: -ms-linear-gradient(top, #cdf3dd, #FF7E67);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdf3dd), color-stop(100%, #FF7E67));
+  background-image: -webkit-linear-gradient(top, #cdf3dd, #FF7E67);
+  background-image: -o-linear-gradient(top, #cdf3dd, #FF7E67);
+  background-image: linear-gradient(#cdf3dd, #FF7E67);
+  border-color: #FF7E67 #FF7E67 hsl(145, 62%, 63%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  width: 125px;
+  height: 35px;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
 
 
 input[type="checkbox"] {

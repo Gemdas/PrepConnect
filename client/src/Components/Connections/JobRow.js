@@ -52,6 +52,7 @@
 		      	</ReactModal>
 
 		      </td>
+			  <button className="btn declineBtn">Decline</button>
 		    </tr>
  		)
  	}
