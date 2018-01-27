@@ -13,5 +13,12 @@
     "mongoose": "^4.13.9",
     "nodemailer": "^4.4.2",
     "request": "^2.83.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "engines": {
+    "node": "8.9.2"
   }
 }
