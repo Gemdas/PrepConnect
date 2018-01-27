@@ -6,7 +6,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 var cookieParser = require('cookie-parser');
 const path = require("path");
-require("dotenv").config()
 const secret = process.env.SECRET || "secret message goes here"  
 
 
