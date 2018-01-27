@@ -13,6 +13,10 @@
 	font-size: 25px !important;
 }
 
+.logout-icon {
+	color: #ffffff;
+}
+
 .dashboard-wrapper {
 	margin-top: 65px;
 }
