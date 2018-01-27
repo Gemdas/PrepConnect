@@ -17,11 +17,6 @@ body {
   text-align: left;
 }
 
-.btn {
-  color: #FF7E67;
-  border-color: #FF7E67;
-}
-
 #editor { 
   position: absolute;
   top: 0;
