@@ -18,7 +18,7 @@ app.use(routes);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  process.env.mongolab-dimensional-46374 || "mongodb://localhost/reactreadinglist",
+  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist",
   {
     useMongoClient: true
   }
