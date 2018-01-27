@@ -10,7 +10,7 @@ class WelcomeScreen extends Component {
 		return (
 
 			<div className="jumbotron jumbotron-fluid welcome-wrapper">
-				<div className="container welcome-wrapper">
+				<div className="container-fluid welcome-wrapper">
 					<img className="dash-logo" src="https://image.ibb.co/jKaSzG/pclogo.png" alt="pclogo" border="0" />
 					<h1 className="display-4 welcome-head">Welcome to PrepConnect</h1>
 					<Typewriter className="lead-text" text="Focus on skills, not a resume" />
